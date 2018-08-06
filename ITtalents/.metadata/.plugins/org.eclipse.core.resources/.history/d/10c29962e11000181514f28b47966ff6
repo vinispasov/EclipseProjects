@@ -1,0 +1,42 @@
+package Vignette;
+
+import java.time.LocalDate;
+
+public abstract class Vignette {
+	private LocalDate issueDate;
+	private String color;
+	private double price;
+	private LocalDate expiryDate;
+
+
+	
+	
+	//getters and setters
+	public LocalDate getIssueDate() {
+		return issueDate;
+	}
+	public void setIssueDate(LocalDate issueDate) {
+		this.issueDate = issueDate;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
+	public LocalDate getExpiryDate() {
+		return expiryDate;
+	}
+	public void setExpiryDate(LocalDate expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+	
+}

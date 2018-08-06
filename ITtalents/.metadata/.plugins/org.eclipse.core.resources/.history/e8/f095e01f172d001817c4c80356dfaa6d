@@ -1,0 +1,5 @@
+package Traders;
+
+public abstract class Trader {
+
+}

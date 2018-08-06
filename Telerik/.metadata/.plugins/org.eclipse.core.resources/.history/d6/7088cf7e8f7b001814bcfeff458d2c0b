@@ -1,0 +1,34 @@
+package BankProduct;
+import java.util.Scanner;
+public class Deposit extends BankProduct{
+
+	private int monthlyPaidAmount;
+	
+	//constructor
+	public Deposit(String nameOfProduct, int annualInterestRate, int periodOfProductMonthly,int monthlyPaidAmount) {
+		super(nameOfProduct, annualInterestRate, periodOfProductMonthly);
+		setMonthlyPaidAmount(monthlyPaidAmount);
+	}
+
+	//getters and setters
+	public int getMonthlyPaidAmount() {
+		return monthlyPaidAmount;
+	}
+
+	public void setMonthlyPaidAmount(int monthlyPaidAmount) {
+		Scanner sc=new Scanner(System.in);
+		if (monthlyPaidAmount<0) {
+			while(true) {
+				System.out.println("The amount should be positive number.Try again: ");
+				monthlyPaidAmount=sc.nextInt();
+				if(monthlyPaidAmount>=0) {
+					System.out.println("The amount is correct.");
+					break;
+				}
+			}
+		}
+		this.monthlyPaidAmount = monthlyPaidAmount;
+		sc.close();
+	}
+
+}

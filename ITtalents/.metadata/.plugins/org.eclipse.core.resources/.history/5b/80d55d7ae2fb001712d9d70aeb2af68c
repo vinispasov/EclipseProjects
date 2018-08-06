@@ -1,0 +1,15 @@
+
+public class College {
+	public static void main(String[] args) {
+		Student pesho=new Student("Pesho","Bussines", 29);
+		Student sisi=new Student();
+		Student gosho=new Student();
+		
+		System.out.println(pesho.receiveScholarship(3, 50));
+		
+		 sisi.upYear();
+		
+		
+	}
+
+}

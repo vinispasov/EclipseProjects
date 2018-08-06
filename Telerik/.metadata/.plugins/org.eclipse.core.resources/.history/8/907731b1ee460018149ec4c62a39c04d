@@ -1,0 +1,48 @@
+package MockExamVariant2;
+import java.util.Scanner;
+public class Speed {
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int numCars=sc.nextInt();
+		int speed=sc.nextInt();
+		
+		int groupNum=1;
+		int bestGroupNum=groupNum;
+		int groupSum=speed;
+		int bestGroupSum=groupSum;
+		
+
+		
+		for (int i = 0; i < numCars-1; i++) {
+			int currentCarSpeed=sc.nextInt();
+			
+			if (currentCarSpeed>speed) {
+				groupNum++;
+				groupSum+=currentCarSpeed;
+			}
+			else {
+				groupNum=1;
+				groupSum=currentCarSpeed;
+			}
+			speed=currentCarSpeed;
+			
+			
+			if (bestGroupNum<groupNum) {
+				bestGroupNum=groupNum;
+			}
+			if (bestGroupSum<groupSum) {
+				bestGroupSum=groupSum;
+			}
+		}
+		
+		int bestResult;
+		
+		if (condition) {
+			
+		}
+		
+	}
+
+}

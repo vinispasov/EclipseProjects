@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class AandB {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		sc.nextLine();
+		String input=sc.nextLine();
+		String[]in=input.split(" ");
+		
+	    int a=in[0].charAt(0)-48;
+	    int b=in[1].charAt(0)-48;
+		
+		
+		
+		findCombinations(n,a,b);
+			
+	}
+	static int findCombinations(int n,int a,int b) {
+		StringBuilder sb=new StringBuilder();
+		
+		for (int i = 0; i < n; i++) {
+			if (i==0) {
+				if (a>b) {
+					sb.append(b);
+				}
+				else {
+					sb.append(a);
+				}
+			}
+			else {
+			sb.append(0);
+			}
+		}
+		int s=Integer.parseInt(sb.toString());
+		System.out.println(s);
+		return s;
+	}
+
+}

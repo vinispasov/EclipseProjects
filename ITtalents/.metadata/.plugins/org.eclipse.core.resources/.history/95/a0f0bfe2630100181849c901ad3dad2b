@@ -1,0 +1,50 @@
+
+public class AllWork {
+	
+	private Task[]task;
+	private static final int MAX_FREE_PLACES=10;
+	private int freePlacesForTasks=MAX_FREE_PLACES;
+	private int currentUnassignedTask=0;
+	private int currentFreePlace=0;
+	
+	//constructor
+	public AllWork() {
+	    this.task=new Task[freePlacesForTasks];
+	}
+	
+	//methods
+	void addTask(Task task) {
+		if (this.freePlacesForTasks>0) {
+			this.task[this.currentFreePlace++]=task;
+			this.freePlacesForTasks--;
+		}
+		else {
+			System.out.println("The list is, already full with Tasks!");
+		}
+	}
+	
+	void getNextTask(Employee rabotnik) {
+		if (task[currentUnassignedTask].getWorkingHours()>0
+				&&task[currentUnassignedTask].getName()!=null) {
+			rabotnik.work(task[currentUnassignedTask++]);
+		}	
+	}
+	
+	void isAllWorkDone() {
+		boolean isDone=true;
+		for (int i = 0; i < task.length; i++) {
+			if (task[i].getWorkingHours()>0 && task[i].getName()!=null) {
+				isDone=false;
+				break;
+			}
+		}
+		if (isDone) {
+			System.out.println("All work is done!");
+		}
+		else {
+			System.out.println("The work is not done,yet!");
+		}
+	}
+	
+
+}

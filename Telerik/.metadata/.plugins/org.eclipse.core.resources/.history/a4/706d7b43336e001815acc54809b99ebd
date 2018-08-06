@@ -1,0 +1,169 @@
+package RecursionTasks;
+import java.util.Scanner;
+public class HorsePath {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int size=sc.nextInt();
+		int [][]arr=new int[size][size];
+		boolean[][]boolMasiv=new boolean[size][size];
+		
+		findHorsePath(0,0,size,arr,0,boolMasiv);
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	static int[][] findHorsePath(int x,int y,int size,int[][]arr,int counter,boolean[][]boolMasiv){
+		
+		int current=x+y;
+		int minX=0;
+		int minY=0;
+		boolean isDone=false;
+		for (int i = 0; i < size; i++) {
+			
+			for (int j = 0; j < size; j++) {
+			   
+				if (boolMasiv[i][j]==false) {
+					minX=i;
+					minY=j;
+		
+		
+		if (counter==size*size) {
+			return arr;
+		}
+		if (counter==0) {
+			arr[x][y]=++counter;
+			boolMasiv[x][y]=true;
+		}
+		 if (x+1<size&&x+1>=0
+				&&y+2<size&&y+2>=0
+				&&boolMasiv[x+1][y+2]==false
+				&&minX==(x+1)
+				&&minY==(y+2)){
+			arr[x+1][y+2]=++counter;
+			boolMasiv[x+1][y+2]=true;
+			x+=1;
+			y+=2;
+			isDone=true;
+			break;
+		}
+		else if (x-2<size&&x-2>=0
+				&&y+1<size&&y+1>=0
+				&&boolMasiv[x-2][y+1]==false
+						&&minX==(x-2)
+						&&minY==(y+1)) {
+			arr[x-2][y+1]=++counter;
+			boolMasiv[x-2][y+1]=true;
+			x-=2;
+			x+=1;
+			isDone=true;
+			break;
+		}
+		 else if (x-2<size&&x-2>=0
+					&&y-1<size&&y-1>=0
+					&&boolMasiv[x-2][y-1]==false
+							&&minX==(x-2)
+							&&minY==(y-1)) {
+				arr[x-2][y-1]=++counter;
+				boolMasiv[x-2][y-1]=true;
+				x-=2;
+				x-=1;
+				isDone=true;
+				break;
+			}
+		 else if (x-1<size&&x-1>=0
+					&&y-2<size&&y-2>=0
+					&&boolMasiv[x-1][y-2]==false
+							&&minX==(x-1)
+							&&minY==(y-2)) {
+				arr[x-1][y-2]=++counter;
+				boolMasiv[x-1][y-2]=true;
+				x-=1;
+				y-=2;
+				isDone=true;
+				break;
+			}
+		 else if (x+1<size&&x+1>=0
+					&&y-2<size&&y-2>=0
+					&&boolMasiv[x+1][y-2]==false
+							&&minX==(x+1)
+							&&minY==(y-2)) {
+				arr[x+1][y-2]=++counter;
+				boolMasiv[x+1][y-2]=true;
+				x+=1;
+				y-=2;
+				isDone=true;
+				break;
+			}
+		 else if (x-1<size&&x-1>=0
+					&&y+2<size&&y+2>=0
+					&&boolMasiv[x-1][y+2]==false
+					&&minX==(x-1)
+					&&minY==(y+2)) {
+				arr[x-1][y+2]=++counter;
+				boolMasiv[x-1][y+2]=true;
+				x-=1;
+				y+=2;
+				isDone=true;
+				break;
+			}
+		
+		
+		else if (x+2<size&&x+2>=0
+				&&y-1<size&&y-1>=0
+				&&boolMasiv[x+2][y-1]==false
+						&&minX==(x+2)
+						&&minY==(y-1)) {
+			arr[x+2][y-1]=++counter;
+			boolMasiv[x+2][y-1]=true;
+			x+=2;
+			y-=1;
+			isDone=true;
+			break;
+		}
+		else if (x+2<size&&x+2>=0
+				&&y+1<size&&y+1>=0
+				&&boolMasiv[x+2][y+1]==false
+						&&minX==(x+2)
+						&&minY==(y+1)) {
+			arr[x+2][y+1]=++counter;
+			boolMasiv[x+2][y+1]=true;
+			x+=2;
+			y+=1;
+			isDone=true;
+			break;
+		}
+		
+		}
+	}
+			if (isDone) {
+				break;
+			}
+}
+		if (!isDone) {
+			for (int i = 0; i <size; i++) {
+				for (int j = 0; j <size; j++) {
+					if (boolMasiv[i][j]==false) {
+						arr[i][j]=++counter;
+						boolMasiv[i][j]=true;
+						isDone=true;
+						break;
+					}
+				}
+				if (isDone) {
+					break;
+				}
+			}
+		}
+		return findHorsePath(x,y,size,arr,counter,boolMasiv);
+		
+    }
+		
+		
+	}
+

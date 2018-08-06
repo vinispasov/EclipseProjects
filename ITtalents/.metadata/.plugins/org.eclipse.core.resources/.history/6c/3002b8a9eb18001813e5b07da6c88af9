@@ -1,0 +1,71 @@
+package Demo;
+
+import java.util.Random;
+import Properties.Apartment;
+import Properties.House;
+import Properties.Parcel;
+import Properties.Property;
+import Agency.Agency;
+import Clients.Buyer;
+import Clients.Seller;
+
+
+public class Demo {
+	
+	public static void main(String[] args) {
+
+	
+		Agency agency=new Agency("Talants Estates","Marikostinovo", "0882423424",5);
+		
+		for (int i = 0; i <15; i++) {
+			Seller seller=new Seller("seller "+(i+1),"tel: "+(i+3590001));
+			System.out.println(seller.getName());
+			System.out.println(seller.getPhone());
+			System.out.println("property price: "+seller.getProperty().getPrice());
+			System.out.println();
+			agency.registerProperty(seller,seller.getProperty());
+			System.out.println("===============");
+		}
+	System.out.println();
+	System.out.println();
+	System.out.println("Agency balance: "+agency.getBudget());
+	System.out.println();
+	System.out.println();
+		for (int i = 0; i < 5; i++) {
+			Buyer buyer=new Buyer("buyer "+(i+1),"tel "+(i+3590001));
+			System.out.println(buyer.getName()+" money: "+buyer.getBudget());
+			Property p;
+			Random r=new Random();
+			int randomIdx=r.nextInt(3);
+			switch (randomIdx) {
+			case 0:p=new Parcel();
+			break;
+			case 1:p=new House();
+			break;
+			case 2:p=new Apartment();
+			break;
+			default:
+				break;
+			}
+			agency.searchForProperty(buyer);
+			
+			
+			agency.requestView(buyer,agency.getProperties().get(i),agency.getProperties().get(i).getAgent());
+			agency.requestView(buyer,agency.getProperties().get(i+1),agency.getProperties().get(i+1).getAgent());
+			agency.requestView(buyer,agency.getProperties().get(i+2),agency.getProperties().get(i+2).getAgent());
+			agency.buyProperty(buyer,buyer.getViews().get(i));
+		}
+		
+		
+
+	
+	}
+	
+	
+	
+	
+	}
+	
+	
+
+}

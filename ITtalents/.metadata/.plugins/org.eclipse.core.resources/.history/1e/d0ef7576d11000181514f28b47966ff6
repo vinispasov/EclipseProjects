@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+
+import Vignette.CarVignette;
+import Vignette.Vignette;
+import java.util.Random;
+public class FuelStation {
+	private double turnoverOfDay;
+	private ArrayList<Vignette>vignettes;
+	
+	
+	//constructor
+	public FuelStation() {
+	  
+	
+	  for (int i = 0; i < 10000; i++) {
+		int randomNumber=this.randomNum();
+		switch (randomNumber) {
+		case 0: this.vignettes.add(new CarVignette());
+			
+			break;
+
+		default:
+			break;
+		}
+		
+	  }
+	}
+	
+	
+	//methods
+	private int randomNum() {
+		Random r=new Random();
+		return r.nextInt(6);
+	}
+
+}

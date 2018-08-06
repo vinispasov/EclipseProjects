@@ -1,0 +1,43 @@
+
+public class OfficeDemo {
+	public static void main(String[] args) {
+		
+		AllWork allWork=new AllWork();
+		
+		Employee pesho=new Employee("Pesho");
+		Employee gosho=new Employee("Gosho");
+		Employee mitko=new Employee("Mitko");
+		
+		Task t1=new Task("pochistvane",3);
+		Task t2=new Task("pochistvane",7);
+		Task t3=new Task("pochistvane",8);
+		Task t4=new Task("pochistvane",7);
+		Task t5=new Task("pochistvane",7);
+		Task t6=new Task("pochistvane",7);
+		Task t7=new Task("pochistvane",7);
+		Task t8=new Task("pochistvane",8);
+		Task t9=new Task("pochistvane",8);
+		Task t10=new Task("pochistvane",8);
+		
+		allWork.addTask(t1);
+		allWork.addTask(t2);
+		allWork.addTask(t3);
+		allWork.addTask(t4);
+		allWork.addTask(t5);
+		allWork.addTask(t6);
+		allWork.addTask(t7);
+		allWork.addTask(t8);
+		allWork.addTask(t9);
+		allWork.addTask(t10);
+		
+		while (true) {
+			System.out.println("new day");
+			gosho.work(allWork.getNextTask(gosho));
+			if (allWork.isAllWorkDone(allWork.task[allWork.getCurrentUnnassignedTask()])=="All work is done!") {
+				break;
+			}
+		}	
+		
+	}
+
+}

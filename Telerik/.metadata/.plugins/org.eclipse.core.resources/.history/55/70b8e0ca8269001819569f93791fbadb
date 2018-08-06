@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class CorrectBrackets {
+	static void brackets (int l, int r, String s) {
+	   // System.out.println(l + "" + r + " s:" + s);
+	    if (l == 0 && r == 0) {
+	        System.out.println(s);
+	    }
+	    if (l > 0) {
+	        brackets(l-1, r+1, s + "(");
+	    }
+	    if (r > 0) {
+	        brackets(l, r-1, s + ")");
+	    }
+	}
+	public static void main(String[] args) {
+	    brackets(4, 0, "");
+	}
+}

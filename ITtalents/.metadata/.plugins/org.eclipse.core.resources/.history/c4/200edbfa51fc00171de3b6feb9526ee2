@@ -1,0 +1,11 @@
+package homework2Lesson16Encapsulation;
+
+public class Warehouse {
+	public static void main(String[] args) {
+		Employee pesho=new Employee("Pesho");
+		Employee niki=new Employee("Niki");
+		
+		pesho.showReport();
+	}
+
+}

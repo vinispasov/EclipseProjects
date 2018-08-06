@@ -1,0 +1,34 @@
+package Couriers;
+import java.util.HashMap;
+public abstract class Courier {
+	private String name;
+	private String addres;
+	private String workingHours;
+	private HashMap<String,Double> products;
+	
+	public Courier(String name, String addres, String workingHours) {
+		this.name = name;
+		this.addres = addres;
+		this.workingHours = workingHours;
+		this.products=new HashMap<String,Double>();
+		this.products.put("Domati", 2.0);
+		this.products.put("Krastavici", 1.5);
+		this.products.put("Konservi",2.5);
+		this.products.put("Meso", 5.0);
+		this.products.put("Riba",4.5);
+		this.products.put("Podpravki", 0.5);
+		this.products.put("Yabulki", 1.5);
+	}
+
+	public HashMap<String, Double> getProducts() {
+		return products;
+	}
+
+	public void setProducts(HashMap<String, Double> products) {
+		this.products = products;
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,14 @@
+
+public class Demo {
+	public static void main(String[] args) {
+		Carshop mbShop=new Carshop(5);
+		Car car=new Car("slk",2014,78000);
+		System.out.println(mbShop.addCar(car));
+		
+		Car car1=mbShop.getNextCar();
+		System.out.println(car1.model);
+		System.out.println(car1.getPrice());
+		System.out.println(car1.getYear());
+	}
+
+}

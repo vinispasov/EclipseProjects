@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Computer {
+	Scanner sc=new Scanner(System.in);
+	//state
+	int year;
+	double price;
+	boolean isNotebook;
+	int hardDiskMemory;
+	String operationSystem;
+	//behavior
+	
+	void changeOperationSystem() {
+		String newOperationSystem=sc.nextLine();
+		operationSystem=newOperationSystem;
+	}
+	
+}
+
+

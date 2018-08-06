@@ -1,0 +1,38 @@
+package Vignette;
+
+public class BusVignette extends Vignette{
+	
+	//constructor
+		public BusVignette(){
+			this.setColor("Green");
+		}
+		
+		//methods
+		void glueVignette() {
+			System.out.println("20 seconds");
+		}
+		
+		//inner classes
+		public class DailyVignette extends BusVignette{
+			//constructor
+		   public DailyVignette(){
+		    	this.setPrice(9);
+		    }
+		}
+		
+		public class MonthlyVignette extends BusVignette{
+			//constructor
+			   public MonthlyVignette(){
+			    	this.setPrice(9*10);
+			    }
+		}
+		
+		public class YearVignette extends BusVignette{
+			//constructor
+			   public YearVignette(){
+			    	this.setPrice(90*6);
+			    }
+		}
+
+
+}

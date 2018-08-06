@@ -1,0 +1,92 @@
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
+public class HDNL_Toy {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int numInput=sc.nextInt();
+		sc.nextLine();
+		
+		List<String>input=new ArrayList<>();
+		List<String>result=new ArrayList<>();
+		Stack<String>helper=new Stack<>();
+		int counter=0;
+		int digitCount=0;
+		for (int i = 0; i <numInput; i++) {
+			input.add(sc.nextLine());
+		}
+		
+	
+		for (int i = 0; i < input.size(); i++) {
+			StringBuilder sb=new StringBuilder();
+			char alphabet=input.get(i).charAt(0);
+			int digit=input.get(i).charAt(1)-'0';
+			if (i==input.size()-1) {
+				while (!helper.isEmpty()) {
+					result.add(helper.peek());
+					helper.pop();
+				}
+				break;
+			}
+			int nextDigit=input.get(i+1).charAt(1)-'0';
+			
+			
+			if (digit<nextDigit) {
+				++counter;
+				for (int j = 0; j < counter; j++) {
+					sb.append(" ");
+				}
+				sb.append("<");
+				sb.append(alphabet);
+				sb.append(digit);
+				sb.append(">");
+				result.add(sb.toString());
+				sb.append("/", 1, 2);
+			    helper.push(sb.toString());
+			    digitCount=digit;
+			}
+			else if(digit==nextDigit) {
+				for (int j = 0; j < counter; j++) {
+					sb.append(" ");
+				}
+				sb.append("<");
+				sb.append(alphabet);
+				sb.append(digit);
+				sb.append(">");
+				result.add(sb.toString());
+				sb.append("/", 1, 2);
+				result.add(sb.toString());
+			}
+			else {
+				--counter;
+				if (digitCount==digit&&!helper.isEmpty()) {
+					result.add(helper.peek());
+					helper.pop();
+				}
+				for (int j = 0; j <counter; j++) {
+					sb.append(" ");
+				}
+				
+				sb.append("<");
+				sb.append(alphabet);
+				sb.append(digit);
+				sb.append(">");
+				result.add(sb.toString());
+			}
+			
+				
+		}
+		
+		for (String string : result) {
+			System.out.println(string);
+		}
+		
+		
+	}
+
+	
+	
+	
+}

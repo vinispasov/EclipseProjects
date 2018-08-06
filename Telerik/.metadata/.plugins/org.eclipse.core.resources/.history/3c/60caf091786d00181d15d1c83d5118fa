@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class AandB {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		sc.nextLine();
+		String input=sc.nextLine();
+		
+		char[]chArr=input.toCharArray();
+		int a=chArr[0]-48;
+		int b=chArr[1]-48;
+		System.out.println(a);
+		System.out.println(b);
+			
+	}
+
+}

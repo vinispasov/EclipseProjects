@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class task16 {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+	
+	System.out.println("Enter number N:");
+	   int N=sc.nextInt();
+	   while(!(N>=10&&N<=5555)) {
+			System.out.println("Invalid number, try again:");
+			   N=sc.nextInt();
+		   }
+	   System.out.println("Enter number M:");
+	   int M=sc.nextInt();
+	   while(!(M>=10&&M<=5555)) {
+		System.out.println("Invalid number, try again:");
+		   M=sc.nextInt();
+	   }
+	   
+	   if (N<50&&M<50) {
+		System.out.println("There is no numbers to respond on the condition.");
+	}
+	   if (N>M) {
+		int helper=N;
+		N=M;
+		M=helper;
+	}
+	   for (int i =M; i >=N; i--) {
+		  
+		if (i%50==0) {
+			System.out.println(i);
+		}
+	}
+	   
+}
+}

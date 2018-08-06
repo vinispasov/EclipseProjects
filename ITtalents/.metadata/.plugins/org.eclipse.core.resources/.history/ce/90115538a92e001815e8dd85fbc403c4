@@ -1,0 +1,7 @@
+package Traders;
+
+public interface ITrader {
+	
+	
+
+}

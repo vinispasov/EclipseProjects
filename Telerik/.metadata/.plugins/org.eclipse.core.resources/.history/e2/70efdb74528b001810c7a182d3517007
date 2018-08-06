@@ -1,0 +1,28 @@
+package hashTable;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.ArrayList;
+public class FindTheDifference {
+	public static void main(String[] args) {
+		String s="abcd";
+		String t="abcde";
+		findTheDifference(s,t);
+	}
+
+    public static char findTheDifference(String s, String t) {
+    	Set<Character>set=new HashSet<>();
+    	for (Character character : s.toCharArray()) {
+			set.add(character);
+		}
+    	char result=' ';
+    	for (int i = 0; i < t.length(); i++) {
+			if (set.contains(t.charAt(i))) {
+				continue;
+			}
+			result=t.charAt(i);
+			break;
+		}
+    	
+    	return result;
+    }
+}

@@ -1,0 +1,25 @@
+
+public class Page {
+	
+	private String title;
+	private String text;
+	
+	
+	//methods
+	
+	void addText(String text){
+		this.text=text;
+	}
+	
+	String removeText() {
+		String s=this.text.substring(0,this.text.length());
+		this.text=s;
+		return this.text;
+	}
+	void pageView() {
+		System.out.println(this.title);
+		System.out.println(this.text);
+		
+	}
+
+}

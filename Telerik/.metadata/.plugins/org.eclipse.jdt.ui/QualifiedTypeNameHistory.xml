@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="SuperherosUniverse.PowerType"/>
+<fullyQualifiedTypeName name="Message.Message"/>
+<fullyQualifiedTypeName name="Message.FileMessage"/>
+<fullyQualifiedTypeName name="BankProduct.BankProduct"/>
+<fullyQualifiedTypeName name="BankProduct.Credit"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.stream.Entity"/>
+<fullyQualifiedTypeName name="tools.OutOfAgeException"/>
+<fullyQualifiedTypeName name="tools.ClientRefuseContractException"/>
+<fullyQualifiedTypeName name="bank_product.Deposit"/>
+<fullyQualifiedTypeName name="tools.CreditNotApprovedException"/>
+<fullyQualifiedTypeName name="tools.AmountConditionMismatchException"/>
+<fullyQualifiedTypeName name="bank_product.Credit"/>
+<fullyQualifiedTypeName name="tools.PeriodConditionMismatchException"/>
+<fullyQualifiedTypeName name="bank_product.SavingAccount"/>
+<fullyQualifiedTypeName name="bank_product.PayableAccount"/>
+<fullyQualifiedTypeName name="bank_product.BankProduct"/>
+<fullyQualifiedTypeName name="bank_product.Account"/>
+<fullyQualifiedTypeName name="bank_product.CurrencyChange"/>
+<fullyQualifiedTypeName name="financial_unit.Bank"/>
+<fullyQualifiedTypeName name="tools.AvailableBankCurrencies"/>
+<fullyQualifiedTypeName name="financial_unit.Client"/>
+<fullyQualifiedTypeName name="bank_product.CreditTypeCorporate"/>
+<fullyQualifiedTypeName name="tools.InvalidIdOrBulstatException"/>
+<fullyQualifiedTypeName name="tools.InvalidAddressException"/>
+<fullyQualifiedTypeName name="tools.InvalidAvailableCurrencyException"/>
+<fullyQualifiedTypeName name="tools.InvalidMonthlySalaryException"/>
+<fullyQualifiedTypeName name="bank_product.CreditCards"/>
+<fullyQualifiedTypeName name="bank_product.DebitCards"/>
+<fullyQualifiedTypeName name="tools.Entity"/>
+<fullyQualifiedTypeName name="models.base.Item"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="models.TaskPriority"/>
+<fullyQualifiedTypeName name="models.TicketPriority"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="models.Task"/>
+<fullyQualifiedTypeName name="models.Todo"/>
+<fullyQualifiedTypeName name="models.Ticket"/>
+</qualifiedTypeNameHistroy>

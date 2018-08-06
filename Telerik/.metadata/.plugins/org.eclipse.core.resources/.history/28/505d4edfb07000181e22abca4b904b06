@@ -1,0 +1,49 @@
+
+public class WildcartMatching {
+	public static void main(String[] args) {
+		String s="aa";
+		String p="*a";
+		System.out.println(isMatch(s,p));
+	}
+	
+	 public static boolean isMatch(String s, String p) {
+
+		 boolean isMatch=false;
+		 StringBuilder sb=new StringBuilder();
+		 for (int i = 0; i < p.length(); i++) {
+			
+			 String helper="";
+			 char ch=s.charAt(i);
+			 char symbol=p.charAt(i);
+			 if (s.length()!=p.length()&&!p.contains("*")) {
+				return false;
+			}
+			 if (symbol=='*'&&symbol!=p.charAt(p.length()-1)) {
+				for (int j =i+1; j < p.length(); j++) {
+					if (p.charAt(j)==s.charAt(j)) {
+						sb.delete(0, sb.length());
+						sb.append(s.substring(0,i));
+						sb.append(s.substring(j, s.charAt(s.length()-1)));
+						break;
+					}
+				}
+			}
+			 else if (symbol=='?') {
+				 isMatch=true;
+			}
+			 else {
+				if (symbol==ch) {
+					isMatch=true;
+				}
+				else {
+					isMatch=false;
+					break;
+				}
+			}
+		}
+		
+		 return isMatch;
+	 }
+	 
+
+}

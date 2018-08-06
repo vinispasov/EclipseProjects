@@ -1,0 +1,10 @@
+
+public abstract class MusicInstruments {
+	
+	private String name;
+	private double price;
+	private int stock;
+	private boolean inStock;
+	
+
+}

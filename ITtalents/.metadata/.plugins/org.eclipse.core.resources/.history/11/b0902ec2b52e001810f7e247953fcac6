@@ -1,0 +1,22 @@
+package Traders;
+
+import Couriers.Courier;
+
+public abstract class Trader {
+	private String name;
+	private String addres;
+	private int money;
+	
+	//constructor
+	public Trader(String name, String addres, int money) {
+		this.name = name;
+		this.addres = addres;
+		this.money = money;
+	}
+	
+	
+	
+	
+	
+
+}

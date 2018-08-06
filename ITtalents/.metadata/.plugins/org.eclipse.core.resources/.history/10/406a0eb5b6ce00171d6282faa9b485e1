@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class task08 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter number:");
+	int number=sc.nextInt();
+	if (number==1) {
+		System.out.println(0);
+	}
+	else {
+		
+		if (number%2==0) {
+			for (int i = number-1; i <=number+number; i+=2) {
+		     System.out.print(i+" ");
+			}
+		}
+		else {
+			System.out.println();
+		}
+	}
+}
+}

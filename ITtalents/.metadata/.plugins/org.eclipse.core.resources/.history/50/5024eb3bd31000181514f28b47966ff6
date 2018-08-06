@@ -1,0 +1,20 @@
+
+
+public class Demo {
+	public static void main(String[] args) {
+		
+		
+		 FuelStation omv=new FuelStation();
+	   Driver pesho=new Driver("Pesho",500,omv);
+	   
+	   pesho.buyVignetteForAll("day");
+	   
+	    
+	    
+		
+		
+		
+		
+	}
+
+}

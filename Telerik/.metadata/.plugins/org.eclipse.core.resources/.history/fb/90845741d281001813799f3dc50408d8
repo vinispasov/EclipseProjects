@@ -1,0 +1,80 @@
+package bank_product;
+
+import static bank_product.BankProduct.setCounterReasonForCreditNotApproved;
+
+import java.util.Scanner;
+
+import tools.AmountConditionMismatchException;
+import tools.CreditNotApprovedException;
+import tools.OutOfAgeException;
+
+public abstract class BankProduct extends Account{
+
+	private static final int NUMBER_4_AMOUNT_MISMATCH = 4;
+	//fields
+	private int rate;
+	private int periodOfProductMonthly;
+	private static int counterReasonForCreditNotApproved=0;
+	
+	
+	//constructors
+	public BankProduct(String name,String idOrBulstat,int incomesMonthly) throws CreditNotApprovedException{
+		super(name,idOrBulstat,incomesMonthly);
+		this.rate=0;
+		this.periodOfProductMonthly=0;
+	}
+	
+	//methods
+
+	int checkCreditPeriod(int period,int minPeriod,int maxPeriod) {
+		if (period<minPeriod||period>maxPeriod) {
+			Scanner sc=new Scanner(System.in);
+			while(true) {
+				System.out.println("The period for this kind of product should be between "+minPeriod+" and "+maxPeriod+" including.Please try again here: ");
+				period=sc.nextInt();
+				if (period>=minPeriod&&period<=maxPeriod) {
+					System.out.println("Correct period.");
+					sc.close();
+					break;
+				}
+			}
+		}
+		return period;
+	}
+	//
+     int checkDesireAmount(int amount,int minAmount,int maxAmount) throws AmountConditionMismatchException {
+    	 
+    		 if(amount<minAmount||amount>maxAmount) {
+    			 setCounterReasonForCreditNotApproved(NUMBER_4_AMOUNT_MISMATCH);
+    		   throw new AmountConditionMismatchException();
+    		 }
+    		 return amount;
+	}
+	//getters and setters
+	public int getAnnualInterestRate() {
+		return rate;
+	}
+
+	void setRate(int rate) {
+		this.rate = rate;
+	}
+
+	public int getPeriodOfProductMonthly() {
+		return periodOfProductMonthly;
+	}
+
+	void setPeriodOfProductMonthly(int period){
+		this.periodOfProductMonthly=period;
+	}
+
+	public static int getCounterReasonForCreditNotApproved() {
+		return counterReasonForCreditNotApproved;
+	}
+
+	static void setCounterReasonForCreditNotApproved(int counterReasonForCreditNotApproved) {
+		BankProduct.counterReasonForCreditNotApproved = counterReasonForCreditNotApproved;
+	}
+	
+
+	
+}

@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Task02 {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of words: ");
+		int n=sc.nextInt();
+		int sumOfDigits=0;
+		int sumMax=0;
+		String heaviestWord="";
+		System.out.println("Enter words: ");
+		
+		for (int i = 0; i <n; i++) {
+			String word=sc.nextLine();
+			for (int j = 0; j < word.length(); j++) {
+				char symbol=word.charAt(j);
+				sumOfDigits+=(symbol-96);
+			}
+		
+			if (sumOfDigits>sumMax) {
+				sumMax=sumOfDigits;
+				heaviestWord=word;
+			}
+		}
+		
+		System.out.println(sumMax+" "+heaviestWord);
+		
+		
+
+	}
+
+}

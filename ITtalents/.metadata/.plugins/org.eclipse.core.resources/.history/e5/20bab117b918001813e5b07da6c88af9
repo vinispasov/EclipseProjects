@@ -1,0 +1,24 @@
+package Agency;
+import Clients.Seller;
+import Clients.Buyer;
+import java.util.HashSet;
+import java.util.HashMap;
+
+public class Agent {
+	private String name;
+	private String phone;
+	private HashSet<Seller> sellers;
+	private HashSet<Buyer> buyers;
+	private HashMap<Buyer,View> views;
+	
+	
+	//constructor
+	public Agent(String name,String phone) {
+		this.name=name;
+		this.phone=phone;
+		sellers=new HashSet<Seller>();
+		buyers=new HashSet<Buyer>();
+		views=new HashMap<Buyer,View>();
+	}
+
+}

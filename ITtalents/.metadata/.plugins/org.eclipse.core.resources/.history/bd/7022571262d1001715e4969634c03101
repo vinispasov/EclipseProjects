@@ -1,0 +1,22 @@
+
+public class task23 {
+public static void main(String[] args) {
+	int result=0;
+	int num=1;
+	int counter=1;
+	while (counter!=11) {
+		
+	
+		System.out.print(num+"*"+counter+", ");
+		counter++;
+		if (counter==9) {
+			num++;
+			counter=1;
+			System.out.println();
+		}
+		if (num==9) {
+			break;
+		}
+	}
+}
+}

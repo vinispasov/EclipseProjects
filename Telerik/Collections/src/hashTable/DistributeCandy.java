@@ -1,0 +1,26 @@
+package hashTable;
+import java.util.HashSet;
+import java.util.ArrayList;
+public class DistributeCandy {
+	public static void main(String[] args) {
+		int[]candies= {1,1,1,2,2,2,3,3,3,3};
+		System.out.println(distributeCandies(candies));
+	}
+	 public static int distributeCandies(int[] candies) {
+	   HashSet<Integer>typeCandies=new HashSet<>();
+	   
+	   for (int i = 0; i < candies.length; i++) {
+		   typeCandies.add(candies[i]);
+	   }
+	   
+	   if (typeCandies.size()>candies.length/2) {
+		return candies.length/2;
+	   }
+	   else {
+		   return typeCandies.size();
+	   }
+	   
+	   
+	 }
+
+}

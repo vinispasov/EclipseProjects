@@ -1,0 +1,22 @@
+package Traders;
+
+import Couriers.Courier;
+import Couriers.RetailCourier;
+
+public class Peddler extends Trader{
+	
+	private Courier courier;
+
+	public Peddler(String name, String addres, int money, RetailCourier courier) {
+		super(name, addres, money);
+		this.courier=courier;
+	}
+
+	
+    public void makeOrder(RetailCourier c) {
+		
+		
+	}
+	
+
+}

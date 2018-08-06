@@ -1,0 +1,62 @@
+package Traders;
+import java.util.ArrayList;
+import Couriers.RetailCourier;
+import Shops.CommercialSite;
+import Shops.MarketStall;
+import Shops.StreetKiosk;
+
+import java.util.Random;
+public class SoleTrader extends Trader {
+	
+	private ArrayList<RetailCourier>couriers;
+	private CommercialSite shop;
+
+	public SoleTrader(String name, String addres, int money) {
+		super(name, addres, money);
+	}
+
+	
+	
+    public void makeOrder(RetailCourier c) {
+    	
+	}
+	
+	
+	
+	public ArrayList<RetailCourier> getCouriers() {
+		return couriers;
+	}
+
+
+
+
+
+	public void setCouriers(ArrayList<RetailCourier> couriers) {
+		this.couriers = couriers;
+	}
+
+
+
+
+
+	public CommercialSite getShop() {
+		return shop;
+	}
+
+
+
+
+
+	public void setShop(CommercialSite shop) {
+		this.shop = shop;
+	}
+
+
+
+
+
+	public int random(int n) {
+		Random r=new Random();
+		return r.nextInt(n);
+	}
+}

@@ -1,0 +1,20 @@
+package SuperherosUniverse;
+
+import java.util.Iterator;
+
+public class main {
+	
+		public static void main(String[] args) {
+			
+		Superhero batman=new Superhero("Batman","001",Aligment.GOOD,1001,PowerType.CHEMICHAL,"Strong",PowerType.TECH);
+		Superhero spinderman=new Superhero("Spiderman","002",Aligment.GOOD,100,PowerType.TECH,"Flexible",PowerType.MAGIC);
+		
+		batman.addPower("Magic", PowerType.MAGIC);
+	   for (Iterator iterator = batman.getPowers().iterator(); iterator.hasNext();) {
+		Powers power = (Powers) iterator.next();
+		batman.attack(spinderman, power);
+	   }
+	
+	}
+
+}

@@ -1,0 +1,20 @@
+
+public class Factoriel {
+	public static void main(String[]args) {
+		int num=7;
+		int counter=1;
+		int result=findFactorial(num,counter);
+		System.out.println(result);
+		
+	}
+	static int findFactorial(int num,int counter) {
+		
+		if (counter==num) {
+			return num;
+		}
+		num=num*counter;
+		counter++;
+		return findFactorial(num,counter);
+	}
+
+}

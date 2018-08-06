@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class task24 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter number:");
+	
+	int num=sc.nextInt();
+	
+	 while(!(num>=10&&num<=30000)) {
+			System.out.println("Invalid number, try again:");
+			   num=sc.nextInt();
+		   }
+
+	int e=num%10;
+	int d=(num/10)%10;
+	int c=(num/100)%10;
+	int b=(num/1000)%10;
+	int a=(num/10000)%10;
+			
+	
+	
+		if (num>=10&&num<=99) {
+			if (e==d) {
+				System.out.println("Chisloto e palindrom");
+			}
+			else {
+				System.out.println("Chisloto ne e palindrom");
+			}
+		}
+		else if (num>=100&&num<=999) {
+			if (e==c
+					||e==d&&d==c) {
+				System.out.println("Chisloto e palindrom");
+			}
+			else {
+				System.out.println("Chisloto ne e palindrom");
+			}
+		}
+		else if (num>=1000&&num<=9999) {
+			if (e==b&&d==c
+					||e==d&&d==c&&c==b) {
+				System.out.println("Chisloto e palindrom");
+			}
+			else {
+				System.out.println("Chisloto ne e palindrom");
+			}
+		}
+		else if (num>=10000&&num<30000) {
+			if (e==a&&b==d
+					||a==b&&b==c&&c==d&&d==e) {
+				System.out.println("Chisloto e palindrom");
+			}
+			else {
+				System.out.println("Chisloto ne e palindrom");
+			}
+		}
+		
+
+}
+}

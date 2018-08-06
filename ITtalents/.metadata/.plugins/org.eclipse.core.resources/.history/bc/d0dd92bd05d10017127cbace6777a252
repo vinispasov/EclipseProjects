@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class task19 {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+	
+	System.out.println("Enter number:");
+	   int number=sc.nextInt();
+	   while(!(number>=10&&number<=99)) {
+			System.out.println("Invalid number, try again:");
+			   number=sc.nextInt();
+		   }
+	   
+	   int counter=number;
+	   while (counter!=1) {
+		if (number%2==0) {
+			counter=counter*(int) 0.5;
+			System.out.println(counter);
+		}
+		else {
+			counter=3*counter+1;
+			System.out.println(counter);
+		}
+	   }
+	
+	   
+	   
+	   
+}
+}

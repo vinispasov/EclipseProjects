@@ -1,0 +1,44 @@
+
+public class Employee extends Person {
+	private double daySalary;
+	
+	//constructors
+	public Employee(String name, int age, boolean isMale,double daySalary) {
+		super(name, age, isMale);
+		setDaySalary(daySalary);
+	}
+	
+	//getters
+	public double getDaySalary() {
+		return daySalary;
+	}
+	//setters
+	public void setDaySalary(double daySalary) {
+		if (daySalary>=0) {
+			this.daySalary = daySalary;
+		}
+		else {
+			System.out.println("Incorrect salary entered!");
+		}
+	}
+	
+	//methods
+	 double calculateOverTime(double hours) {
+		if (this.getAge()<18) {
+			System.out.println("The employee doesn't have 18 years old.");
+			return 0;
+		}
+		else {
+			double salPerHour=this.daySalary/8;
+			double salOvertime=(salPerHour*1.5)*hours;
+			return salOvertime;
+		}
+	}
+	void showPersonInfo() {
+		super.showPersonInfo();
+        System.out.println("Salary per day: "+getDaySalary());
+	}
+	
+	
+
+}

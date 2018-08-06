@@ -1,0 +1,14 @@
+package bank_product;
+
+import financial_unit.Bank;
+import tools.Entity;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		
+		Credit credit=new Credit("",1200,"0313443432207196340",Entity.PHYSICAL,CreditTypePhysical.CUSTOM,12,5000);
+	}
+	
+}

@@ -1,0 +1,23 @@
+package TelerikEntranceExam30_04_18;
+import java.util.Scanner;
+public class Task2_Toys {
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int n=sc.nextInt();
+		String array[]=new String[3];
+		
+		for (int i = 0; i <n; i++) {
+			String singleLine=sc.nextLine();
+			
+			
+			array = singleLine.split(" ");
+			String toy= array[0];
+			int kocis = Integer.parseInt(array[1]);
+			int cokis=Integer.parseInt(array[2]);
+			
+		}
+	}
+
+}

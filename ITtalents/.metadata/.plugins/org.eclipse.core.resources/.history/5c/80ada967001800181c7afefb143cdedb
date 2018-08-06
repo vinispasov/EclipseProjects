@@ -1,0 +1,10 @@
+package Properties;
+
+enum TypeHouse{
+	FLOOR, HOUSE
+}
+
+public class House extends Property {
+	private String constructionType;
+
+}

@@ -1,0 +1,62 @@
+
+public class AllWork {
+	
+	static Task[]task;
+	private static final int MAX_FREE_PLACES=10;
+	private static int freePlacesForTasks=MAX_FREE_PLACES;
+	private static final int MAX_IDX=MAX_FREE_PLACES-1;
+	private static int currentUnassignedTask=0;
+	private static int currentFreePlace=0;
+	
+	//constructor
+	public AllWork() {
+	    task=new Task[freePlacesForTasks];
+	}
+	
+	//methods
+	static void addTask(Task zadacha) {
+		if (freePlacesForTasks>0) {
+			task[currentFreePlace++]=zadacha;
+			freePlacesForTasks--;
+		}
+		else {
+			System.out.println("The list is, already full with Tasks!");
+		}
+	}
+	
+	static Task getNextTask(Employee rabotnik) {
+		if (currentUnassignedTask==MAX_IDX) {
+			currentUnassignedTask=0;
+		}
+		if ( rabotnik.getAllWork().task[currentUnassignedTask].getWorkingHours()>0
+				&& rabotnik.getAllWork().task[currentUnassignedTask].getName()!=null) {
+			 return rabotnik.getAllWork().task[currentUnassignedTask++];
+		}
+		else {
+			currentUnassignedTask++;
+		 return getNextTask(rabotnik);
+		}
+	
+	}
+	
+	String isAllWorkDone(Task task) {
+		boolean isDone=true;
+		for (int i = 0; i < task.length; i++) {
+			if (task[i].getWorkingHours()>0 && task[i].getName()!=null) {
+				isDone=false;
+				break;
+			}
+		}
+		if (isDone==true) {
+			return "All work is done!";
+		}
+		else {
+			return "The work is not done,yet!";
+		}
+	}
+	 //getters
+	public static int getCurrentUnnassignedTask() {
+		return currentUnassignedTask;
+	}
+
+}

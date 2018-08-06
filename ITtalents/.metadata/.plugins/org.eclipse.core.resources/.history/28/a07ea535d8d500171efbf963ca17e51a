@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Task17 {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the volume of array:");
+		int[]arr=new int[sc.nextInt()];
+		
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println("Enter number:");
+			arr[i]=sc.nextInt();
+		}
+		boolean jagged=true;
+		for (int i = 0; i < arr.length; i++) {
+			if (i%2==0) {
+				if (arr[i]==arr[arr.length-1]) {
+					if (arr[i]<=arr[i-1]) {
+						jagged=false;
+						break;
+					}
+				}
+				if (arr[i]>=arr[i+1]) {
+					jagged=false;
+					break;
+				}
+				
+			}
+			else {
+				if (arr[i]==arr[arr.length-1]) {
+					if (arr[i]>=arr[i-1]) {
+						jagged=false;
+						break;
+					}
+				if (arr[i]<=arr[i+1]) {
+					jagged=false;
+					break;
+				}
+			}
+		}
+		if (jagged) {
+			System.out.println("The array is jagged.");
+		}
+		else {
+			System.out.println("The array is not jagged.");
+		}
+	}
+	}
+}

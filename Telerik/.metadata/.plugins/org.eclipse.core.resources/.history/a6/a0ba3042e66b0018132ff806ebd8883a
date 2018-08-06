@@ -1,0 +1,60 @@
+package RecursionTasks;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Numerology {
+	public static void main(String[] args)  {
+		Scanner sc=new Scanner(System.in);
+
+
+		String in=sc.nextLine();
+		
+		ArrayList<Integer>list=new ArrayList<>();
+		ArrayList<Integer>helperList=new ArrayList<>();
+		int counter=0;
+		int[]arr=new int[10];
+		for (int i = 0; i < in.length(); i++) {
+			int num=in.charAt(i)-'0';
+			System.out.println(num);
+			list.add(num);
+		}
+	
+		int count=0;
+		System.out.println(calcNumbers(list,arr,counter,count,helperList).toString());
+	
+		
+	}
+	
+	static int[] calcNumbers(ArrayList<Integer>list,int[]arr,int counter,int count,ArrayList<Integer>helperList) {
+		if (counter==8) {
+			return arr;
+		}
+		
+		
+		int num=calcAandB(list,count,helperList);
+		arr[num]++;
+		list.remove(0);
+		counter++;
+		return calcNumbers(list,arr,counter,count=0,helperList=null);
+		
+	}
+	
+	static int calcAandB(ArrayList<Integer>list,int count,ArrayList<Integer>helperList){
+		
+	    if (list.size()==1) {
+			return list.get(0);
+		}
+		
+		int a=list.get(count);
+		int b=list.get(count+1);
+		int result=(a + b) * (a ^ b) % 10;
+		
+		helperList.add(result);
+		for (int i = 1; i < list.size(); i++) {
+			helperList.add(list.get(i));
+		}
+		list=null;
+		list.addAll(helperList);
+		return calcAandB(list,count++,helperList=null);
+	}
+
+}

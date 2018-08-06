@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Task18 {
+	
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the volume of arrays:");
+	int number=sc.nextInt();
+	int[]arr=new int[number];
+	
+	for (int i = 0; i < arr.length; i++) {
+		System.out.println("Enter number for the first array:");
+		arr[i]=sc.nextInt();
+	}	
+	
+   int[]arr1=new int[arr.length];
+	
+	for (int i = 0; i < arr.length; i++) {
+		System.out.println("Enter number for the second array:");
+		arr1[i]=sc.nextInt();
+	}	
+	int arr2[]=new int[arr1.length];
+	for (int i = 0; i < arr2.length; i++) {
+		if (arr[i]>arr1[i] ) {
+			arr2[i]=arr[i];
+		}
+		else if (arr1[i]>=arr[i]) {
+			arr2[i]=arr1[i];
+		}
+	}
+	System.out.println("First array: ");
+	System.out.print('[');
+	for (int i = 0; i < arr.length; i++) {
+		if (i==arr.length-1) {
+			System.out.print(arr[i]);
+		}
+		else {
+		System.out.print(arr[i]+", ");
+		}
+	}
+	System.out.println(']');
+	
+	
+	System.out.println("Second array: ");
+	System.out.print('[');
+	for (int i = 0; i < arr1.length; i++) {
+		if (i==arr1.length-1) {
+			System.out.print(arr1[i]);
+		}
+		else {
+		System.out.print(arr1[i]+", ");
+		}
+	}
+	System.out.println(']');
+	
+	
+	System.out.println("Third array: ");
+	System.out.print('[');
+	for (int i = 0; i < arr2.length; i++) {
+		if (i==arr2.length-1) {
+			System.out.print(arr2[i]);
+		}
+		else {
+		System.out.print(arr2[i]+", ");
+		}
+	}
+	System.out.println(']');
+	
+	
+}
+}

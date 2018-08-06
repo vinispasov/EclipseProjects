@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.HashMap;
+public class CheckSubsequences {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		String str1=sc.nextLine();
+		String str2=sc.nextLine();
+		HashMap<Integer,String>map=new HashMap<>();
+		StringBuilder sb=new StringBuilder();
+		for (int i = 0; i < str1.length(); i++) {
+			for (int j = 0; j < str2.length(); j++) {
+				char a=str1.charAt(i);
+				char a1=str2.charAt(j);
+				if (a==a1) {
+					map.put(i,a+"");
+					break;
+				}
+			}
+		}
+		
+		for (int i = 0; i <str1.length(); i++) {
+			if (map.get(i)==null) {
+				continue;
+			}
+			if (str1.contains(map.get(i))&&str2.contains(map.get(i))) {
+				sb.append(map.get(i));
+			}
+			if (!str1.contains(sb.toString())&&!str2.contains(sb.toString())) {
+				break;
+			}
+		}
+		System.out.println(sb);
+	}
+}

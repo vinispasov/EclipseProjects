@@ -1,0 +1,22 @@
+package financial_unit;
+import BankProduct.BankProduct;
+import java.util.ArrayList;
+import bank_product.Account;
+import bank_product.Credit;
+import bank_product.Deposit;
+
+import java.util.List;
+
+public class Bank extends FinancialUnit {
+
+	private String name;
+    
+    List<ClientCredit>
+    
+
+	public Bank(String name) {
+		this.name=name;
+	}
+
+
+}

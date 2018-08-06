@@ -1,0 +1,69 @@
+import Couriers.Courier;
+import Couriers.RetailCourier;
+import Couriers.WholeSaleCourier;
+import Shops.CommercialSite;
+import Shops.MallShop;
+import Shops.MarketStall;
+import Shops.StreetKiosk;
+import Traders.Peddler;
+import Traders.SoleTrader;
+import Traders.TradeChain;
+import Traders.Trader;
+import java.util.ArrayList;
+public class Demo {
+	
+	public static void main(String[] args) {
+		
+		RetailCourier c1=new RetailCourier("1","11","1");
+		RetailCourier c2=new RetailCourier("2","12","1");
+		RetailCourier c3=new RetailCourier("3","13","1");
+		RetailCourier c4=new RetailCourier("4","14","1");
+		RetailCourier c5=new RetailCourier("5","15","1");
+		WholeSaleCourier c6=new WholeSaleCourier("6","16","1");
+		WholeSaleCourier c7=new WholeSaleCourier("7","17","1");
+		WholeSaleCourier c8=new WholeSaleCourier("8","18","1");
+		WholeSaleCourier c9=new WholeSaleCourier("9","19","1");
+		WholeSaleCourier c10=new WholeSaleCourier("10","20","1");
+		
+		ArrayList<MallShop> mallShops=new ArrayList();
+	    ArrayList<StreetKiosk> kiosks=new ArrayList();
+	    ArrayList<MarketStall> stalls=new ArrayList();
+		
+		for (int i = 0; i < 7; i++) {
+			mallShops.add(new MallShop(i+10+"","1",3));
+			kiosks.add(new StreetKiosk(i+20+"","1",1));
+			stalls.add(new MarketStall(i+"","1",2));
+		}
+		
+		Peddler t1=new Peddler("1","1",100,c1);
+		SoleTrader t2=new SoleTrader("1","1",3);
+		TradeChain t3=new TradeChain("1","1",3000);
+		
+		t2.setShop(stalls.get(0));
+		t2.getCouriers().add(c2);
+		t2.getCouriers().add(c3);
+		
+		t3.getCouriers().add(c4);
+		t3.getCouriers().add(c5);
+		t3.getCouriers().add(c6);
+		t3.getCouriers().add(c7);
+		t3.getCouriers().add(c8);
+		t3.getCouriers().add(c9);
+		t3.getCouriers().add(c10);
+		
+		for (int i = 0; i <5; i++) {
+			t3.getKiosks().add(kiosks.get(i));
+			t3.getShops().add(mallShops.get(i));
+		}
+		t3.makeOrder(c7, "Meso");
+		t3.makeOrder(c7, "Domati");
+		t3.makeOrder(c7, "Krastavici");
+		t3.makeOrder(c7, "Riba");
+		for (int i = 0; i < 1; i++) {
+			System.out.println(t3.getKiosks().get(i).getProducts().entrySet());
+		}
+		
+		System.out.println(t2.getClass().toString());
+	}
+
+}

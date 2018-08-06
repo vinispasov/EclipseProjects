@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+public class task21 {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+	
+	System.out.println("Enter number:");
+	   int a=sc.nextInt();
+	   while(!(a>=1&&a<=51)) {
+			System.out.println("Invalid number, try again:");
+			   a=sc.nextInt();
+		   }
+	      
+	   System.out.println(1);
+	   int spatiya=1;
+	   int karo=2;
+	   int kupa=3;
+	   for (int i =1; i <=13; i++) {
+	   if (i==1) {
+		System.out.println(2);
+	}
+	   else if (i==2) {
+		System.out.println(3);
+	}
+	   else if (i==3) {
+		System.out.println(4);
+	}
+	   else if (i==4) {
+		System.out.println(5);
+	}
+	   else if (i==5) {
+		System.out.println(6);
+	}
+	   else if (i==6) {
+		System.out.println(7);
+	}
+	   else if (i==7) {
+		System.out.println(8);
+	}
+	   else if (i==8) {
+		System.out.println(9);
+	}
+	else if (i==9) {
+		System.out.println(10);
+	}
+	else if (i==10) {
+		System.out.println("Vale");
+	}
+	else if (i==11) {
+		System.out.println("Dama");
+	}
+	else if (i==12) {
+		System.out.println("Pop");
+	}
+	else if (i==13) {
+		System.out.println("Aso");
+	}
+		
+		for (int j =1; j <=4; j++) {
+		
+			if (j==1) {
+				System.out.println("spatiya");
+				break;
+			}
+			else if(j==2) {
+				System.out.println("karo");
+				break;
+			}
+			else if (j==3) {
+				System.out.println("kupa");
+				break;
+			}
+			else if (j==4) {
+				System.out.println("pika");
+				break;
+			}
+			
+			
+			
+		}
+	}
+	   
+	   
+	   
+}
+}

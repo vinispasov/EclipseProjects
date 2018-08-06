@@ -1,0 +1,40 @@
+
+public class Task {
+	private String name;
+	private double workingHours;
+	
+	//constructor
+	public Task(String name, int workingHours){
+		setName(name);
+		setWorkingHours(workingHours);
+	}
+	
+	//setters
+	public void setName(String name){
+		if (name!=" ") {
+			this.name=name;
+		}
+		else {
+			System.out.println("Incorrect name!");
+		}
+	}
+	public void setWorkingHours(double workingHours) {
+		if (workingHours>=0) {
+			this.workingHours=workingHours;
+		}
+		else {
+			System.out.println("Incorrect working Hours!");
+		}
+	}
+
+	//getters
+	public String getName() {
+		return this.name;
+	}
+	public double getWorkingHours() {
+		return this.workingHours;
+	}
+	
+	
+
+}

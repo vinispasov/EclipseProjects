@@ -1,0 +1,60 @@
+package RecursionTasks;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Permutations {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int n=sc.nextInt();
+		int counter=0;
+		int[]arr=new int[n];
+		
+		ArrayList<Integer>list=new ArrayList();
+		findPermutations(n,counter,list,arr);
+		
+	}
+	static void findPermutations(int n,int counter,ArrayList<Integer>list,int[]arr){
+		
+		if (counter==arr.length-1) {
+			return;
+		}
+		if (counter==0) {
+			for (int i = 0; i < arr.length; i++) {
+				arr[i]=i+1;
+				System.out.print(arr[i]);
+			}
+			System.out.println();
+		}
+		counter++;
+		if (counter==1) {
+			for (int i = 0; i < arr.length-2; i++) {
+				int a=arr[i+2];
+				arr[i+2]=arr[i+1];
+				arr[i+1]=a;
+				for (int j = 0; j < arr.length; j++) {
+					System.out.print(arr[j]);
+				}
+				System.out.println();
+			}
+			
+		}
+		
+		for (int i = 0; i < arr.length-1; i++) {
+			int a=arr[i+1];
+			arr[i+1]=arr[i];
+			arr[i]=a;
+			for (int j = 0; j < arr.length; j++) {
+				System.out.print(arr[j]);
+			}
+			System.out.println();
+		}
+	     findPermutations(n,counter,list,arr);
+		
+	}
+	
+	
+	
+	
+
+
+}

@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class Task02String {
+	
+	public static void main(String[]args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter text:");
+		String text=sc.nextLine();
+		String[]word=text.split(" ");
+		 String result=findMostFrequentWord(word,text);
+		System.out.println(result);
+		
+		}
+	static String findMostFrequentWord(String[]arr,String text) {
+		int count=1,tempCount;
+		String popular=arr[count];
+		String temp="";
+		arr=text.split(" ");
+		for (int i = 0; i < arr.length-1; i++) {
+			temp=arr[i];
+			tempCount=0;
+			for (int j = 1; j <arr.length; j++) {
+				 if (temp == arr[j])
+				        tempCount++;
+				    }
+				    if (tempCount > count)
+				    {
+				      popular = temp;
+				      count = tempCount;
+				    }
+			}
+		return popular;
+		}
+	      
+	}
+
+
+

@@ -1,0 +1,16 @@
+package Couriers;
+
+public abstract class Courier {
+	private String name;
+	private String addres;
+	private String workingHours;
+	
+	public Courier(String name, String addres, String workingHours) {
+		this.name = name;
+		this.addres = addres;
+		this.workingHours = workingHours;
+	}
+	
+	
+
+}

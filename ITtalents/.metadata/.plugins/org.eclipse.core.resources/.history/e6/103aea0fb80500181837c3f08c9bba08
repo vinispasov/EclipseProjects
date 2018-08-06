@@ -1,0 +1,18 @@
+
+public class Page {
+	
+	private String title;
+	private String text;
+	
+	
+	//methods
+	
+	void addText(String text){
+		this.text=text;
+	}
+	
+	void removeText() {
+		this.text.replaceAll(this.text,"");
+	}
+
+}

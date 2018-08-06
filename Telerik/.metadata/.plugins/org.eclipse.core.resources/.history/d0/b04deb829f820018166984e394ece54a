@@ -1,0 +1,88 @@
+package financial_unit;
+import java.util.Scanner;
+import tools.OutOfCurrencyException;
+
+public class FinancialUnit {
+
+    private static final int MIN_SIZE_OF_NAME = 2;
+	private String name;
+    private String address;
+    private int availableCurrency;
+
+
+
+    public FinancialUnit() {
+
+    }
+
+    public FinancialUnit(String name, String address, int availableCurrency) {
+        setName(name);
+        setAddress(address);
+        setAvailableCurrency(availableCurrency);
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    // Name must be of only alphabet characters, start with a capital letter and be no longer than 40 symbols.
+    public void setName(String name) {
+    	  boolean containDigit=true;
+		   Scanner sc=new Scanner(System.in);
+		   
+			while(containDigit||name.isEmpty()||name==null||name.length()<MIN_SIZE_OF_NAME) {
+				containDigit=false;
+			 for (Character ch : name.toCharArray()) {
+				 if (ch==' ') {
+					continue;
+				}
+				if (!Character.isAlphabetic(ch)) {
+					containDigit=true;
+					break;
+				}
+			 }
+			    if (containDigit||name.isEmpty()||name==null||name.length()<MIN_SIZE_OF_NAME) {
+			    	System.out.println("Invalid name entered.Try again:");
+			    	name=sc.nextLine();
+				}
+			}
+			sc.close();
+   		this.name = name;
+
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    // Address must be of only alphanumeric characters and be no longer than 50 symbols.
+    public void setAddress(String address) {
+    	  
+		   Scanner sc=new Scanner(System.in);
+		   
+			    if (address.isEmpty()||address==null||address.length()<MIN_SIZE_OF_NAME) {
+			    	System.out.println("Invalid name entered.Try again:");
+			    	name=sc.nextLine();
+				}
+			
+			sc.close();
+   		this.address = address;
+    }
+
+    public int getAvailableCurrency() {
+        return availableCurrency;
+
+    }
+
+    // Available currency must be of only numeric characters.
+    public void setAvailableCurrency(int availableCurrency) {
+
+        this.availableCurrency = availableCurrency;
+    }
+
+
+
+
+}

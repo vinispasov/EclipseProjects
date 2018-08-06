@@ -1,0 +1,5 @@
+package Vignette;
+
+public class BusVignette extends Vignette{
+
+}

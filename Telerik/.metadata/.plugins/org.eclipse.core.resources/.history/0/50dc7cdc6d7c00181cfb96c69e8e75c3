@@ -1,0 +1,45 @@
+package bank_product;
+import java.util.Scanner;
+
+public abstract class BankProduct {
+
+	
+	private int rate;
+	private int periodOfProductMonthly;
+	private int accountBalance;
+	
+	
+	//constructors
+	public BankProduct() {
+		this.rate =0;
+		this.periodOfProductMonthly =0;
+		this.accountBalance = 0;
+	}
+
+	//getters and setters
+	public int getAnnualInterestRate() {
+		return rate;
+	}
+
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+
+	public int getPeriodOfProductMonthly() {
+		return periodOfProductMonthly;
+	}
+
+	public abstract void setPeriodOfProductMonthly(int period,int minPeriod,int maxPeriod);
+	
+
+	public int getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(int accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+	
+
+	
+}

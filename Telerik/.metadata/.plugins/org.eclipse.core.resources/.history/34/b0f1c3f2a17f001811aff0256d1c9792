@@ -1,0 +1,16 @@
+package bank_product;
+
+public class PayableAccount extends Account implements MoneyTransferable {
+	
+	public PayableAccount(String name,int incomesMonthly) {
+		super(name,incomesMonthly);
+		super.setTax(5);
+	}
+	
+	@Override
+	public void incomesTransfer() {
+		super.setAccountBalance(super.getIncomesMonthly());
+	}
+	
+
+}

@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class task8 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	
+	
+	String number =sc.nextLine();    
+	int a=number.charAt(0)-'0';    
+	int b=number.charAt(1)-'0';    
+	int c=number.charAt(2)-'0';    
+	int d=number.charAt(3)-'0';
+  
+	
+		System.out.println(a);
+	System.out.println(b);
+	System.out.println(c);
+	System.out.println(d);
+	
+}
+}

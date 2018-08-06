@@ -1,0 +1,13 @@
+package hashTable;
+import java.util.Scanner;
+
+public class PlusOneMultiplyOne {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.nextLine();
+		int n=input.charAt(0)-'0';
+		int m=input.charAt(1)-'0';
+		System.out.println(n+" "+m);
+	}
+
+}

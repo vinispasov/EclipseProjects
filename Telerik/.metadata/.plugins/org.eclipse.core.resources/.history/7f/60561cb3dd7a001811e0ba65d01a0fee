@@ -1,0 +1,20 @@
+package BankProduct;
+
+public class Credit extends BankProduct{
+	
+    private int monthlyFee;
+	
+	public Credit(String nameOfProduct, int annualInterestRate, int periodOfProductMonthly,int monthlyFee) {
+		super(nameOfProduct, annualInterestRate, periodOfProductMonthly);
+		this.setMonthlyFee(monthlyFee);
+	}
+
+	public int getMonthlyFee() {
+		return monthlyFee;
+	}
+
+	public void setMonthlyFee(int monthlyFee) {
+		this.monthlyFee = monthlyFee;
+	}
+
+}

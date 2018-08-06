@@ -1,0 +1,148 @@
+package bank_product;
+import java.util.Scanner;
+
+import tools.CreditNotApprovedException;
+import tools.Entity;
+import tools.OutOfAgeException;
+
+enum CreditType{
+	CUSTOM,RESIDENTIAL,STUDENT,FAST;
+}
+public class Credit extends BankProduct{
+	private static final int ID_NUMBERS = 10;
+	private static final int BULSTAT_NUMBER_NINE =9;
+	private static final int BULSTAT_NUMBER_THIRTEEN =13;
+	//
+    private static final double FORTY_PERCENT =0.4;
+	private static final int HUNDRED = 100;
+	private static final int MIN_MONTHS_CUSTOM = 6;
+	private static final int MAX_MONTHS_CUSTOM = 120;
+	private static final int CUSTOM_RATE=7;
+	private static final int PHYSICAL_RATE = 1;
+	private static final int PHYSICAL_TAX = 5;
+	private static final int COOPERATE_TAX = 20;
+	private static final double NEGATIVE_NUMBER =-1;
+	private static final char MAX_DECADE = 5;
+	private static final char MAX_YEAR_OF_DECADE = 3;
+	private static final char DECADE = 6;
+	private static final char MIN_DECADE = 0;
+	private static final char MIN_YEAR_OF_DECADE = 0;
+	private double monthlyFee;
+    
+	
+    //constructor
+	public Credit(Entity entity,CreditType creditType,int periodOfProductMonthly,int amount,int incomes,String idOrBulstat) {
+		
+		try {
+			prepareCreditDetails(entity,creditType,periodOfProductMonthly,amount,incomes,idOrBulstat);
+		} catch (CreditNotApprovedException e) {
+			System.out.println("The credit is declined.You can increase the period or decrease the amount of the sum and try again.");
+		}
+	}
+	
+	//getters and setters
+	public double getMonthlyFee() {
+		return monthlyFee;
+	}
+
+	//methods
+	
+	
+	private void prepareCreditDetails(Entity entity,CreditType creditType,int periodOfProductMonthly,int amount,int incomes,String idOrBulstat) throws CreditNotApprovedException {
+		
+		if (entity==Entity.PHYSICAL) {
+			
+			switch (creditType) {
+			case CUSTOM:
+			   super.setIdOrBulstat(idOrBulstat);
+			   super.setPeriodOfProductMonthly(periodOfProductMonthly, MIN_MONTHS_CUSTOM, MAX_MONTHS_CUSTOM);
+			   boolean isApproved=isApproved(periodOfProductMonthly,amount,incomes,CUSTOM_RATE+PHYSICAL_RATE,PHYSICAL_TAX);
+			   if (isApproved) {
+				System.out.println("The credit is approved!");
+				super.setRate(CUSTOM_RATE+PHYSICAL_RATE);
+				super.setTax(PHYSICAL_TAX);
+	
+				double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+				super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+			   }
+			   else {
+				throw new CreditNotApprovedException();
+			   }
+			case RESIDENTIAL:
+			case STUDENT:
+			case FAST:
+				
+				break;
+
+			default:
+				break;
+			}
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	private boolean isApproved(int periodMonths,int amount,int incomes,int rate,int tax) {
+		double monthlyFee=amount/periodMonths;
+		double rateAmount=monthlyFee*(rate/HUNDRED);
+		double result=monthlyFee+rateAmount;
+		double maxMonthFee=incomes*FORTY_PERCENT;
+		if (result<=maxMonthFee) {
+			double monthlyFeeWithTax=result+tax;
+			this.monthlyFee=monthlyFeeWithTax;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	private void checkIdOrBulstat(String idOrBulstat) {
+		
+		if(idOrBulstat.length()==ID_NUMBERS) {
+			checkAge(idOrBulstat);
+		}
+		else if(idOrBulstat.length()==BULSTAT_NUMBER_NINE
+				||idOrBulstat.length()==BULSTAT_NUMBER_THIRTEEN) {
+			super.setIdOrBulstat(idOrBulstat);
+		}
+		else {
+			Scanner sc=new Scanner(System.in);
+			while(true) {
+				System.out.println("Personal Id should be 10 digits.Bulstat should be 9 or 13 digits.Try again here: ");
+				idOrBulstat=sc.nextLine();
+				if (idOrBulstat.length()==ID_NUMBERS
+						||idOrBulstat.length()==BULSTAT_NUMBER_NINE
+						||idOrBulstat.length()==BULSTAT_NUMBER_THIRTEEN) {
+					System.out.println("Correct input!");
+					this.idOrBulstat=idOrBulstat;
+					break;
+				}
+			}
+		}
+	}
+	
+	private void checkAge(String id) throws OutOfAgeException {
+		if((id.charAt(0)==MAX_DECADE&&id.charAt(1)>=MAX_YEAR_OF_DECADE)
+				||id.charAt(0)>=DECADE
+				||id.charAt(0)==MIN_DECADE&&id.charAt(1)==MIN_YEAR_OF_DECADE){
+			super.setIdOrBulstat(id);
+		}
+		else {
+			throw new OutOfAgeException();
+		}
+	}
+	
+	private void checkCreditPeriod() {
+		
+	}
+	
+	
+	
+	
+
+}

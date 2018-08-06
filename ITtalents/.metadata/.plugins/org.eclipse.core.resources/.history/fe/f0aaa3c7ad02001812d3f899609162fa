@@ -1,0 +1,88 @@
+
+public class Employee {
+	private String name;
+	private Task currentTask;
+	private static final int MAX_HOURS=8;
+	private int hoursLeft=MAX_HOURS;
+	static AllWork allWork;
+    
+	//constructor
+	Employee(String name){
+		setName(name);
+	}
+	
+	//setters
+	
+	public void setName(String name) {
+		if (name!=" ") {
+			this.name=name;
+		}
+		else {
+			System.out.println("The name is incorrect!");
+		}
+	}
+	public void setCurrentTask(Task currentTask) {
+	     this.currentTask=currentTask;
+	}
+	public void setHoursLeft(int hoursLeft) {
+		if (hoursLeft>=0) {
+			this.hoursLeft=hoursLeft;
+		}
+		else {
+			System.out.println("Incorrect number for hours left!");
+		}	
+	}
+	
+	//getters
+	
+	public String getName() {
+		return this.name;
+	}
+	public Task getCurrentTask() {
+		return this.currentTask;
+	}
+	public int getHoursLeft() {
+		return this.hoursLeft;
+	}
+	
+	//methods
+	
+	void work(AllWork allWork) {
+			int workingHours=allWork.getCurrentTask().getWorkingHours();
+			while(this.hoursLeft!=0) {
+			if (workingHours>this.hoursLeft) {
+				allWork.getCurrentTask().setWorkingHours(workingHours-this.hoursLeft);
+				this.hoursLeft=0;
+				System.out.println("End of shift!");
+			}
+			else if (this.hoursLeft>workingHours) {
+				this.hoursLeft-=workingHours;
+				allWork.getCurrentTask().setWorkingHours(0);
+				allWork.getNextTask();
+				System.out.println("Getting next task!");
+			}
+			else {
+				allWork.getCurrentTask().setWorkingHours(0);
+				this.hoursLeft=0;
+				allWork.getNextTask();
+				System.out.println("Done that job for today!");
+			}
+			}
+	}
+	
+	public void showReport() {
+		System.out.println();
+		System.out.println("Name of employee: "+getName());
+		System.out.println("Current task name: "+ this.currentTask.getName());
+		System.out.println("Hours left to work: "+getHoursLeft());
+		System.out.println("Hours left for the task: "+this.currentTask.getWorkingHours());
+	}
+	
+	void startWorkingDay() {
+		this.hoursLeft=MAX_HOURS;
+		System.out.println("It's a new day!");
+	}
+	
+
+	
+}

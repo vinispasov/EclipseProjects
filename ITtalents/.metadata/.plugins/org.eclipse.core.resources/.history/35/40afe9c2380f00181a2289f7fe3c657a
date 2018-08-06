@@ -1,0 +1,9 @@
+import java.time.LocalDateTime;
+public class Vignette {
+	private LocalDateTime issueDate;
+	private String color;
+	private double price;
+	private LocalDateTime expiryDate;
+	
+
+}

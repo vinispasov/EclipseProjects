@@ -1,0 +1,86 @@
+
+public class Employee {
+	private String name;
+	private Task currentTask;
+	private int maxHours=8;
+	private int hoursLeft=maxHours;
+	private static AllWork allWork;
+	
+	//constructor
+	Employee(String name){
+		setName(name);
+		setAllWork(allWork);
+	}
+	
+	//setters
+	public void setAllWork(AllWork allWork) {
+		this.allWork=allWork;
+	}
+	public void setName(String name) {
+		if (name!=" ") {
+			this.name=name;
+		}
+		else {
+			System.out.println("The name is incorrect!");
+		}
+	}
+	public void setCurrentTask(Task currentTask) {
+	     this.currentTask=currentTask;
+	}
+	public void setHoursLeft(int hoursLeft) {
+		if (hoursLeft>=0) {
+			this.hoursLeft=hoursLeft;
+		}
+		else {
+			System.out.println("Incorrect number for hours left!");
+		}	
+	}
+	
+	//getters
+	public AllWork getAllWork() {
+		return this.allWork;
+	}
+	public String getName() {
+		return this.name;
+	}
+	public Task getCurrentTask() {
+		return this.currentTask;
+	}
+	public int getHoursLeft() {
+		return this.hoursLeft;
+	}
+	
+	//methods
+	
+	public void work(Task currentTask) {
+		if (this.currentTask.getName()!=null) {
+			if (this.hoursLeft>currentTask.getWorkingHours()) {
+				this.hoursLeft-=currentTask.getWorkingHours();
+				currentTask.setWorkingHours(0);
+			}
+			else if (currentTask.getWorkingHours()>hoursLeft) {
+				currentTask.setWorkingHours(currentTask.getWorkingHours()-hoursLeft);
+				this.setHoursLeft(0);
+			}
+			else {
+				setHoursLeft(0);
+				currentTask.setWorkingHours(0);
+			}
+			
+		
+	}
+	
+	public void showReport() {
+		System.out.println();
+		System.out.println("Name of employee: "+getName());
+		System.out.println("Current task name: "+ this.currentTask.getName());
+		System.out.println("Hours left to work: "+getHoursLeft());
+		System.out.println("Hours left for the task: "+this.currentTask.getWorkingHours());
+	}
+	
+	void startWorkingDay() {
+		this.hoursLeft=this.maxHours;
+	}
+	
+
+}

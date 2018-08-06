@@ -1,0 +1,72 @@
+
+public class Page {
+	
+	private int title;
+	private String text;
+	
+	
+	//methods
+	
+	void addText(String text){
+		this.text=text;
+	}
+	
+	void removeText() {
+		this.text=this.text.replace((this.text),"");
+	}
+	void pageView() {
+		System.out.println("Title: "+this.title);
+		System.out.println("Text: "+this.text);
+	}
+	void searchWord(String word) {
+		if (this.text.contains(word)==true) {
+			System.out.println("'"+word+"'"+"exist in text on page: "+this.title);
+		}
+		else {
+			System.out.println("'"+word+"'"+" does not exist in the text on page:"+this.title);
+		}
+	}
+	
+	boolean containsDigits(){
+		boolean containsDigit=false;
+		for (int i = 0; i < this.text.length(); i++) {
+			if (this.text.charAt(i)==0
+					||this.text.charAt(i)==1
+					||this.text.charAt(i)==2
+					||this.text.charAt(i)==3
+					||this.text.charAt(i)==4
+					||this.text.charAt(i)==5
+					||this.text.charAt(i)==6
+					||this.text.charAt(i)==7
+					||this.text.charAt(i)==8
+					||this.text.charAt(i)==9) {
+				 containsDigit=true;
+				 break;
+			}
+		}
+		if (containsDigit) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	//getters
+	public int getTitle() {
+		return this.title;
+	}
+	public String getText() {
+		return this.text;
+	}
+	
+	//setters
+	public void setTitle(int title) {
+		this.title = title;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	
+
+}

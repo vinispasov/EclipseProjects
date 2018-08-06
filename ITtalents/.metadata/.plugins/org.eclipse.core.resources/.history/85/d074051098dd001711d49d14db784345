@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class Task09 {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter string:");
+		String symbols=sc.nextLine();
+		String digit="";
+		int numbers=0;
+		for (int i = 0; i < symbols.length(); i++) {
+			char sym=symbols.charAt(i);
+			if (sym=='-'||sym==0
+					||sym==1
+					||sym==2
+					||sym==3
+					||sym==4
+					||sym==5
+					||sym==6
+					||sym==7
+					||sym==8
+					||sym==9) {
+				numbers+=sym;
+				digit+=sym;
+			}
+			
+		}
+		System.out.println(numbers);
+	}
+
+}

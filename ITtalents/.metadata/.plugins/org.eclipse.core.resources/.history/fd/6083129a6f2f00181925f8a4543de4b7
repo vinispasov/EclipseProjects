@@ -1,0 +1,10 @@
+package Traders;
+
+import Couriers.Courier;
+
+public interface ITrader {
+	
+	void makeOrder(Courier c,String product);
+	
+
+}

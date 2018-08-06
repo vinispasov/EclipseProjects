@@ -1,0 +1,6 @@
+
+public class ElectronicSecuredNotepad extends SecuredNotepad implements IElectronicDevice {
+	
+	
+	
+}

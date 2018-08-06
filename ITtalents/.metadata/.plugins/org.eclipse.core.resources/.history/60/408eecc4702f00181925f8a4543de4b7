@@ -1,0 +1,84 @@
+package Traders;
+import java.util.ArrayList;
+import Couriers.RetailCourier;
+import Shops.CommercialSite;
+import Shops.MarketStall;
+import Shops.StreetKiosk;
+
+import java.util.Random;
+public class SoleTrader extends Trader implements ITrader {
+	
+	private ArrayList<RetailCourier>couriers;
+	private CommercialSite shop;
+
+	public SoleTrader(String name, String addres, int money) {
+		super(name, addres, money);
+		this.couriers=new ArrayList();
+	}
+
+	
+	@Override
+    public void makeOrder(RetailCourier c,String product) {
+		double sum=0;
+		for (int i = 0; i <1; i++) {
+			
+			if (c.getProducts().containsKey(product)&&c.getProducts().get(product)<=this.getMoney()/2) {
+				this.shop.getProducts().put(product,c.getProducts().get(product));
+				sum+=c.getProducts().get(product);
+				this.setMoney(this.getMoney()-c.getProducts().get(product));
+				System.out.println("Sum: "+sum);
+			}
+			else {
+				if (c.getProducts().containsKey(product)) {
+					System.out.println("Doesn't have enough money.");
+				}
+				else {
+				System.out.println("Don't have such a product");
+				}
+			}
+		}
+	}
+	
+	
+	
+	public ArrayList<RetailCourier> getCouriers() {
+		return couriers;
+	}
+
+
+
+
+
+	public void setCouriers(ArrayList<RetailCourier> couriers) {
+		this.couriers = couriers;
+	}
+
+
+
+
+
+	public CommercialSite getShop() {
+		return shop;
+	}
+
+
+
+
+
+	public void setShop(CommercialSite shop) {
+		if (shop.getClass().getName().equals("Comme")
+				||shop.getClass().getName().equals(Traders.)) {
+			
+		}
+		this.shop = shop;
+	}
+
+
+
+
+
+	public int random(int n) {
+		Random r=new Random();
+		return r.nextInt(n);
+	}
+}

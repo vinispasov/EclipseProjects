@@ -1,0 +1,76 @@
+
+import java.util.Iterator;
+import java.util.TreeSet;
+import Vignette.BusVignette;
+import Vignette.CarVignette;
+import Vignette.TruckVignette;
+import Vignette.Vignette;
+import java.util.Random;
+public class FuelStation {
+	private double turnoverOfDay;
+	private TreeSet<Vignette>vignettes=new TreeSet<Vignette>();
+	
+	
+	//constructor
+	public FuelStation() {
+	  for (int i = 0; i < 1000; i++) {
+		
+			 Vignette a=new CarVignette().new DailyVignette();
+			this.vignettes.add(a);
+			
+		this.vignettes.add(new CarVignette().new MonthlyVignette());
+		    
+		this.vignettes.add(new CarVignette().new YearVignette());
+	
+		this.vignettes.add(new TruckVignette().new DailyVignette());
+		
+		 this.vignettes.add(new TruckVignette().new MonthlyVignette());
+		
+		 this.vignettes.add(new TruckVignette().new YearVignette());
+	
+		this.vignettes.add(new BusVignette().new DailyVignette());
+		
+		 this.vignettes.add(new BusVignette().new MonthlyVignette());
+		
+		this.vignettes.add(new BusVignette().new YearVignette());
+
+		}
+		
+	  }
+	
+	
+	
+	//methods
+	
+	void sellVignette(Vignette vignette) {
+		for (Iterator<Vignette> iterator = vignettes.iterator(); iterator.hasNext();) {
+			Vignette vinetka =iterator.next();
+			if (vignette.getClass()==vinetka.getClass()) {
+					this.turnoverOfDay+=vinetka.getPrice();
+					this.vignettes.remove(vinetka);
+			}
+			else {
+				System.out.println("We do not have such a vignette.");
+			}
+		}
+		
+}
+	
+	private int randomNum() {
+		Random r=new Random();
+		return r.nextInt(9);
+	}
+
+
+	//getters and setters
+	public TreeSet<Vignette> getVignettes() {
+		return vignettes;
+	}
+
+
+	public void setVignettes(TreeSet<Vignette> vignettes) {
+		this.vignettes = vignettes;
+	}
+	
+	
+}

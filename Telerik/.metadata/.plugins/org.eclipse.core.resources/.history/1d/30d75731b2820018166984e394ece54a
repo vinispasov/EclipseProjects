@@ -1,0 +1,192 @@
+package financial_unit;
+import java.util.ArrayList;
+import bank_product.Account;
+import tools.AvailableBankCurrencies;
+import bank_product.Credit;
+import bank_product.CreditTypeCorporate;
+import bank_product.Deposit;
+import bank_product.PayableAccount;
+import bank_product.SavingAccount;
+import bank_product.BankProduct;
+import bank_product.Credit;
+import bank_product.CreditTypePhysical;
+import bank_product.CurrencyChange;
+import financial_unit.Client;
+
+import com.sun.rmi.rmid.ExecPermission;
+
+import tools.CreditNotApprovedException;
+import tools.Entity;
+import tools.InvalidAvailableCurrencyException;
+import tools.OutOfCurrencyException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Bank extends FinancialUnit {
+
+
+	//available currency for bank
+	private static final int MAX_AVAILABLE_CURRENCY =Integer.MAX_VALUE;
+	private static final int MIN_AVAILABLE_CURRENCY = 2000000;
+	//fields
+    private List<Client> clientList = new ArrayList<>();
+    private Map<String, List<Account>> clientAccounts = new HashMap<>();
+   
+
+    //constructor
+    public Bank(String name, String address, int availableCurrency) {
+		super(name, address, availableCurrency);
+	}
+
+
+    //getters and setters
+    public List<Client> getClientList() {
+        return clientList;
+    }
+
+    @Override
+    public void setName(String name) {
+    	boolean containDigit=true;
+		   Scanner sc=new Scanner(System.in);
+		   
+			while(containDigit||name.isEmpty()||name==null||name.length()<getMinSizeOfName()) {
+				containDigit=false;
+			 for (Character ch : name.toCharArray()) {
+				 if (ch==' ') {
+					continue;
+				}
+				if (!Character.isAlphabetic(ch)) {
+					containDigit=true;
+					break;
+				}
+			 }
+			    if (containDigit||name.isEmpty()||name==null||name.length()<getMinSizeOfName()) {
+			    	System.out.println("Invalid name entered.Try again:");
+			    	name=sc.nextLine();
+			    	containDigit=true;
+				}
+			}
+			sc.close();
+			
+		super.setCorrectName(name);
+    }
+
+    @Override
+	 public void setAvailableCurrency(int availableCurrency) throws InvalidAvailableCurrencyException {
+		
+		if(availableCurrency<MIN_AVAILABLE_CURRENCY||availableCurrency>MAX_AVAILABLE_CURRENCY) {
+			throw new InvalidAvailableCurrencyException("Available currency for bank should be between: "+MIN_AVAILABLE_CURRENCY+" and "+MAX_AVAILABLE_CURRENCY);
+		}
+		setCorrectAvailableCurrency(availableCurrency);
+	}
+
+
+    //methods
+    private void addNewClient(Client client) {
+    	this.clientList.add(client);
+		this.clientAccounts.put(client.getIdOrBulstat(),client.getBankAccountsList());
+    }
+
+
+    public void giveCreditPhysical(Client client, int periodOfProductMonthly, int amount, CreditTypePhysical creditType) {
+       
+		try {
+			Credit credit = new Credit(client.getName(), client.getMonthlySalary(), client.getIdOrBulstat(), client.getEntity(), creditType, periodOfProductMonthly, amount);
+			client.getBankAccountsList().add(credit);
+			addNewClient(client);
+			client.setAvailableCurrency(client.getAvailableCurrency()-credit.getTax());
+			this.setAvailableCurrency(this.getAvailableCurrency()+credit.getTax());
+			System.out.println("The new"+creditType+" credit with iban: "+credit.getIban()+ " was created and the client paid tax "+credit.getTax());
+		} catch (CreditNotApprovedException | InvalidAvailableCurrencyException e) {
+			e.getMessage();
+		}
+    }
+
+    public void giveCreditCorporate(Client client, int periodOfProductMonthly, int amount, CreditTypeCorporate creditType) {
+		try {
+		Credit credit = new Credit(client.getName(), client.getMonthlySalary(), client.getIdOrBulstat(), client.getEntity(), creditType, periodOfProductMonthly, amount);
+			client.getBankAccountsList().add(credit);
+			addNewClient(client);
+			client.setAvailableCurrency(client.getAvailableCurrency()-credit.getTax());
+			this.setAvailableCurrency(this.getAvailableCurrency()+credit.getTax());
+			System.out.println("The new"+creditType+" credit with iban: "+credit.getIban()+ " was created and the client paid tax "+credit.getTax());
+		} catch (CreditNotApprovedException | InvalidAvailableCurrencyException e) {
+			e.getMessage();
+		}
+        
+    }
+    
+    public void createSavingAccount(Client client) {
+    	try {
+			Account savingAccount=new SavingAccount(client.getName(),client.getIdOrBulstat(),client.getMonthlySalary());
+			client.getBankAccountsList().add(savingAccount);
+			addNewClient(client);
+			client.setAvailableCurrency(client.getAvailableCurrency()-savingAccount.getTax());
+			this.setAvailableCurrency(this.getAvailableCurrency()+savingAccount.getTax());
+			System.out.println("The new saving account with iban: "+savingAccount.getIban()+ " was created and the client paid tax "+savingAccount.getTax());
+		} catch (CreditNotApprovedException | InvalidAvailableCurrencyException e) {
+			e.getMessage();
+		}
+    }
+    public void createPayableAccount(Client client) {
+    	try {
+			Account payableAccount=new PayableAccount(client.getName(),client.getIdOrBulstat(),client.getMonthlySalary());
+			client.getBankAccountsList().add(payableAccount);
+			addNewClient(client);
+			client.setAvailableCurrency(client.getAvailableCurrency()-payableAccount.getTax());
+			this.setAvailableCurrency(this.getAvailableCurrency()+payableAccount.getTax());
+			System.out.println("The new saving account with iban: "+payableAccount.getIban()+ " was created and the client paid tax "+payableAccount.getTax());
+		} catch (CreditNotApprovedException | InvalidAvailableCurrencyException e) {
+			e.getMessage();
+		}
+    }
+
+    public void currencyChange(Client client,AvailableBankCurrencies currencyToSell, AvailableBankCurrencies currencyToBuy,double amount) {
+    	CurrencyChange change=new CurrencyChange(currencyToSell,currencyToBuy,amount);
+    	change.changeCurrency(client,amount);
+    }
+    /**
+     * @param client      This is the bank client.
+     * @param productName must be unique.
+     */
+    public void removeBankProduct(Client client, String iban) {
+        List<Account> products = clientAccounts.get(client.getIdOrBulstat());
+        for (Account product : products) {
+            if (product.getIban().equals(iban)) {
+                products.remove(product);
+                break;
+            }
+        }
+    }
+
+    public void removeClient(Client client) {
+
+    }
+
+    public void showClientsBankProducts(Client client) {
+
+
+    }
+
+    public void showAllClientsAndProducts() {
+
+    }
+
+    public void listClientsByCreditScore() {
+
+    }
+
+
+    public void recieveDeposit() {
+
+    }
+
+    public void payInterest() {
+
+    }
+
+}

@@ -1,0 +1,427 @@
+package bank_product;
+import java.util.Scanner;
+
+import tools.CreditNotApprovedException;
+import tools.Entity;
+import tools.OutOfAgeException;
+
+enum CreditTypePhysical {
+	CUSTOM,RESIDENTIAL,STUDENT,FAST,OVERDRAFT;
+}
+enum CreditTypeCorporate {
+	BUSINESS,INVESTMENT,OVERDRAFT;
+}
+public class Credit extends BankProduct{
+	//number of digits that should contain any of listed here:
+	private static final int ID_NUMBERS = 10;
+	private static final int BULSTAT_NUMBER_NINE =9;
+	private static final int BULSTAT_NUMBER_THIRTEEN =13;
+	//tool numbers for some Math calculations:
+    private static final double FORTY_PERCENT =0.4;
+	private static final int HUNDRED = 100;
+	private static final double NEGATIVE_NUMBER =-1;
+	//months conditions for all physical credit products:
+	private static final int MIN_MONTHS_CUSTOM = 6;
+	private static final int MAX_MONTHS_CUSTOM = 120;
+	private static final int MIN_MONTHS_RESIDENTIAL = 6;
+	private static final int MAX_MONTHS_RESIDENTIAL = 120;
+	private static final int MIN_MONTHS_STUDENT = 6;
+	private static final int MAX_MONTHS_STUDENT= 120;
+	private static final int MIN_MONTHS_FAST = 6;
+	private static final int MAX_MONTHS_FAST = 120;
+	//months conditions for all corporate credit products:
+	private static final int MIN_MONTHS_BUSINESS = 6;
+	private static final int MAX_MONTHS_BUSINESS = 120;
+	private static final int MIN_MONTHS_INVESTMENT = 6;
+	private static final int MAX_MONTHS_INVESTMENT = 120;
+	private static final int MIN_MONTHS_OVERDRAFT = 6;
+	private static final int MAX_MONTHS_OVERDRAFT= 120;
+	//rates and taxes for Physical and Cooperate entities:
+	private static final int PHYSICAL_RATE = 1;
+	private static final int CORPORATE_RATE=7;
+	private static final int PHYSICAL_TAX = 5;
+	private static final int CORPORATE_TAX = 20;
+	//rates for all physical credit products:
+	private static final int CUSTOM_RATE=7;
+	private static final int RESIDENTIAL_RATE=7;
+	private static final int STUDENT_RATE=7;
+	private static final int FAST_RATE=7;
+	private static final int CUSTOM_OVERDRAFT_RATE=7;
+	//rates for all corporate credit products:
+	private static final int BUSINESS_RATE=7;
+	private static final int INVESTMENT_RATE=7;
+	private static final int CORPORATE_OVERDRAFT_RATE=7;
+	//tools for checking the clients ages:
+	private static final char MAX_DECADE = 5;
+	private static final char MAX_YEAR_OF_DECADE = 3;
+	private static final char DECADE = 6;
+	private static final char MIN_DECADE = 0;
+	private static final char MIN_YEAR_OF_DECADE = 0;
+	//counter for separating the reasons for declined client:
+	private static int counterReasonForCreditNotApproved=0;
+	// 0-means the desire amount is too big, or the period is too small.
+	//1-means, the person does not have the age to get credit.
+	private double monthlyFee;
+    
+	
+    //constructors
+	//constructor for physical credit:
+	public Credit(Entity entity,CreditTypePhysical creditType,int periodOfProductMonthly,int amount,int incomes,String idOrBulstat) {
+		
+		try {
+			prepareCreditDetails(entity,creditType,periodOfProductMonthly,amount,incomes,idOrBulstat);
+		} catch (CreditNotApprovedException e) {
+			if (counterReasonForCreditNotApproved==1) {
+				counterReasonForCreditNotApproved=0;
+				System.out.println("Sorry,the credit is decline, because the person does not have the age to get credit.");
+			}
+			else if (counterReasonForCreditNotApproved==2) {
+				counterReasonForCreditNotApproved=0;
+				System.out.println("Sorry, cooperate entity can not get credit for physical entity.");
+			}
+			else if(counterReasonForCreditNotApproved==3) {
+				counterReasonForCreditNotApproved=0;
+				System.out.println("Sorry, physical entity can not get credit for cooperate entity.");
+			}
+			else {
+				System.out.println("Credit with this conditions is declined.You can increase the period or decrease the amount and try again.");
+			}
+		}
+	}
+	
+	//constructor for corporate credit:
+  public Credit(Entity entity,CreditTypeCorporate creditType,int periodOfProductMonthly,int amount,int incomes,String idOrBulstat) {
+		
+		try {
+			prepareCreditDetails(entity,creditType,periodOfProductMonthly,amount,incomes,idOrBulstat);
+		} catch (CreditNotApprovedException e) {
+			if (counterReasonForCreditNotApproved==1) {
+				counterReasonForCreditNotApproved=0;
+				System.out.println("Sorry,the credit is decline, because the person does not have the age to get credit.");
+			}
+			else if (counterReasonForCreditNotApproved==2) {
+				counterReasonForCreditNotApproved=0;
+				System.out.println("Sorry, cooperate entity can not get credit for physical entity.");
+			}
+			else if(counterReasonForCreditNotApproved==3) {
+				counterReasonForCreditNotApproved=0;
+				System.out.println("Sorry, physical entity can not get credit for cooperate entity.");
+			}
+			else {
+				System.out.println("Credit with this conditions is declined.You can increase the period or decrease the amount and try again.");
+			}
+		}
+	}
+	
+	
+	//getters and setters
+	public double getMonthlyFee() {
+		return monthlyFee;
+	}
+
+	//methods
+	//method prepare details for physical entity:
+	private void prepareCreditDetails(Entity entity,CreditTypePhysical creditType,int periodOfProductMonthly,int amount,int incomes,String idOrBulstat) throws CreditNotApprovedException {
+		
+		if (entity==Entity.PHYSICAL) {
+			
+			switch (creditType) {
+			case CUSTOM:
+				
+			   //checking is the credit period correct;
+			   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_CUSTOM,MAX_MONTHS_CUSTOM);
+			   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+			   
+			   //checking details of the client
+			   boolean isApprovedCustom=isApproved(periodOfProductMonthly,amount,incomes,CUSTOM_RATE+PHYSICAL_RATE,PHYSICAL_TAX,idOrBulstat);
+			   
+			   if (isApprovedCustom) {
+				System.out.println("The credit is approved!");
+				
+				//setting the parameters
+				super.setRate(CUSTOM_RATE+PHYSICAL_RATE);
+				super.setTax(PHYSICAL_TAX);
+				super.setIdOrBulstat(idOrBulstat);
+				double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+				super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+			   }
+			   else {
+				throw new CreditNotApprovedException();
+			   }
+			   break;
+			   
+			case RESIDENTIAL:
+				
+				//checking is the credit period correct;
+				   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_RESIDENTIAL,MAX_MONTHS_RESIDENTIAL);
+				   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+				   
+				   //checking details of the client
+				   boolean isApprovedResidential=isApproved(periodOfProductMonthly,amount,incomes,RESIDENTIAL_RATE+PHYSICAL_RATE,PHYSICAL_TAX,idOrBulstat);
+				   
+				   if (isApprovedResidential) {
+					System.out.println("The credit is approved!");
+					
+					//setting the parameters
+					super.setRate(RESIDENTIAL_RATE+PHYSICAL_RATE);
+					super.setTax(PHYSICAL_TAX);
+					super.setIdOrBulstat(idOrBulstat);
+					double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+					super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+				   }
+				   else {
+					throw new CreditNotApprovedException();
+				   }
+				   break;
+			case STUDENT:
+				
+				//checking is the credit period correct;
+				   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_STUDENT,MAX_MONTHS_STUDENT);
+				   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+				   
+				   //checking details of the client
+				   boolean isApprovedStudent=isApproved(periodOfProductMonthly,amount,incomes,STUDENT_RATE+PHYSICAL_RATE,PHYSICAL_TAX,idOrBulstat);
+				   
+				   if (isApprovedStudent) {
+					System.out.println("The credit is approved!");
+					
+					//setting the parameters
+					super.setRate(STUDENT_RATE+PHYSICAL_RATE);
+					super.setTax(PHYSICAL_TAX);
+					super.setIdOrBulstat(idOrBulstat);
+					double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+					super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+				   }
+				   else {
+					throw new CreditNotApprovedException();
+				   }
+				   break;
+			case FAST:
+				
+				//checking is the credit period correct;
+				   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_FAST,MAX_MONTHS_FAST);
+				   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+				   
+				   //checking details of the client
+				   boolean isApprovedFast=isApproved(periodOfProductMonthly,amount,incomes,FAST_RATE+PHYSICAL_RATE,PHYSICAL_TAX,idOrBulstat);
+				   
+				   if (isApprovedFast) {
+					System.out.println("The credit is approved!");
+					
+					//setting the parameters
+					super.setRate(FAST_RATE+PHYSICAL_RATE);
+					super.setTax(PHYSICAL_TAX);
+					super.setIdOrBulstat(idOrBulstat);
+					double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+					super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+				   }
+				   else {
+					throw new CreditNotApprovedException();
+				   }
+				break;
+
+            case OVERDRAFT:
+				
+				//checking is the credit period correct;
+				   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_FAST,MAX_MONTHS_FAST);
+				   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+				   
+				   //checking details of the client
+				   boolean isApprovedOverdraft=isApproved(periodOfProductMonthly,amount,incomes,FAST_RATE+PHYSICAL_RATE,PHYSICAL_TAX,idOrBulstat);
+				   
+				   if (isApprovedOverdraft) {
+					System.out.println("The credit is approved!");
+					
+					//setting the parameters
+					super.setRate(FAST_RATE+PHYSICAL_RATE);
+					super.setTax(PHYSICAL_TAX);
+					super.setIdOrBulstat(idOrBulstat);
+					double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+					super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+				   }
+				   else {
+					throw new CreditNotApprovedException();
+				   }
+				break;
+
+			default:
+				break;
+			}
+		}
+		else {
+			counterReasonForCreditNotApproved=2;
+			throw new CreditNotApprovedException();
+		}	
+	}
+	
+	//method prepare details for cooperate entity:
+	
+private void prepareCreditDetails(Entity entity,CreditTypeCorporate creditType,int periodOfProductMonthly,int amount,int incomes,String idOrBulstat) throws CreditNotApprovedException {
+		
+		if (entity==Entity.CORPORATE) {
+			
+			switch (creditType) {
+			case BUSINESS:
+				
+			   //checking is the credit period correct;
+			   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_BUSINESS,MAX_MONTHS_BUSINESS);
+			   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+			   
+			   //checking details of the client
+			   boolean isApprovedCustom=isApproved(periodOfProductMonthly,amount,incomes,BUSINESS_RATE+CORPORATE_RATE,CORPORATE_TAX,idOrBulstat);
+			   
+			   if (isApprovedCustom) {
+				System.out.println("The credit is approved!");
+				
+				//setting the parameters
+				super.setRate(BUSINESS_RATE+CORPORATE_RATE);
+				super.setTax(CORPORATE_TAX);
+				super.setIdOrBulstat(idOrBulstat);
+				double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+				super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+			   }
+			   else {
+				throw new CreditNotApprovedException();
+			   }
+			   break;
+			   
+			case INVESTMENT:
+				
+				//checking is the credit period correct;
+				   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_INVESTMENT,MAX_MONTHS_INVESTMENT);
+				   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+				   
+				   //checking details of the client
+				   boolean isApprovedResidential=isApproved(periodOfProductMonthly,amount,incomes,INVESTMENT_RATE+CORPORATE_RATE,CORPORATE_TAX,idOrBulstat);
+				   
+				   if (isApprovedResidential) {
+					System.out.println("The credit is approved!");
+					
+					//setting the parameters
+					super.setRate(INVESTMENT_RATE+CORPORATE_RATE);
+					super.setTax(CORPORATE_TAX);
+					super.setIdOrBulstat(idOrBulstat);
+					double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+					super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+				   }
+				   else {
+					throw new CreditNotApprovedException();
+				   }
+				   break;
+			case OVERDRAFT:
+				
+				//checking is the credit period correct;
+				   periodOfProductMonthly=checkCreditPeriod(periodOfProductMonthly,MIN_MONTHS_STUDENT,MAX_MONTHS_STUDENT);
+				   super.setPeriodOfProductMonthly(periodOfProductMonthly);
+				   
+				   //checking details of the client
+				   boolean isApprovedStudent=isApproved(periodOfProductMonthly,amount,incomes,STUDENT_RATE+PHYSICAL_RATE,PHYSICAL_TAX,idOrBulstat);
+				   
+				   if (isApprovedStudent) {
+					System.out.println("The credit is approved!");
+					
+					//setting the parameters
+					super.setRate(STUDENT_RATE+PHYSICAL_RATE);
+					super.setTax(PHYSICAL_TAX);
+					super.setIdOrBulstat(idOrBulstat);
+					double accountBalance=this.monthlyFee*super.getPeriodOfProductMonthly();
+					super.setAccountBalance(accountBalance*NEGATIVE_NUMBER);
+				   }
+				   else {
+					throw new CreditNotApprovedException();
+				   }
+				   break;
+				   
+			default:
+				break;
+			}
+		}
+		else {
+			counterReasonForCreditNotApproved=3;
+			throw new CreditNotApprovedException();
+		}
+		
+		
+	}
+	
+	
+	
+	private boolean isApproved(int periodMonths,int amount,int incomes,int rate,int tax,String idOrBulstat) {
+		double monthlyFee=amount/periodMonths;
+		double rateAmount=monthlyFee*(rate/HUNDRED);
+		double result=monthlyFee+rateAmount;
+		double maxMonthFee=incomes*FORTY_PERCENT;
+		try {
+		checkIdOrBulstat(idOrBulstat);
+		}
+		catch(OutOfAgeException e) {
+			counterReasonForCreditNotApproved=1;
+			return false;
+		}
+		if (result<=maxMonthFee) {
+			double monthlyFeeWithTax=result+tax;
+			this.monthlyFee=monthlyFeeWithTax;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	private String checkIdOrBulstat(String idOrBulstat) throws OutOfAgeException {
+		
+		if(idOrBulstat.length()==ID_NUMBERS) {
+			checkAge(idOrBulstat);
+			return idOrBulstat;
+		}
+		else if(idOrBulstat.length()==BULSTAT_NUMBER_NINE
+				||idOrBulstat.length()==BULSTAT_NUMBER_THIRTEEN) {
+			return idOrBulstat;
+		}
+		else {
+			Scanner sc=new Scanner(System.in);
+			while(true) {
+				System.out.println("Personal Id should be 10 digits.Bulstat should be 9 or 13 digits.Try again here: ");
+				idOrBulstat=sc.nextLine();
+				if (idOrBulstat.length()==ID_NUMBERS
+						||idOrBulstat.length()==BULSTAT_NUMBER_NINE
+						||idOrBulstat.length()==BULSTAT_NUMBER_THIRTEEN) {
+					System.out.println("Correct input!");
+					
+					return checkIdOrBulstat(idOrBulstat);
+				}
+			}
+		}
+	}
+	
+	private String checkAge(String id) throws OutOfAgeException {
+		if((id.charAt(0)==MAX_DECADE&&id.charAt(1)>=MAX_YEAR_OF_DECADE)
+				||id.charAt(0)>=DECADE
+				||id.charAt(0)==MIN_DECADE&&id.charAt(1)==MIN_YEAR_OF_DECADE){
+			return id;
+		}
+		else {
+			throw new OutOfAgeException();
+		}
+	}
+	
+	private int checkCreditPeriod(int period,int minPeriod,int maxPeriod) {
+		if (period<minPeriod||period>maxPeriod) {
+			Scanner sc=new Scanner(System.in);
+			while(true) {
+				System.out.println("The period for this kind of credit should be between "+minPeriod+" and "+maxPeriod+" including.Please try again here: ");
+				period=sc.nextInt();
+				if (period>=minPeriod&&period<=maxPeriod) {
+					System.out.println("Correct period.");
+					break;
+				}
+			}
+		}
+		return period;
+	}
+	
+	
+	
+	
+
+}

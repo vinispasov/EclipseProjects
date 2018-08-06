@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Task07 {
+	
+	public static void main(String[]args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter string:");
+		String words=sc.nextLine();
+		
+		int counterWords=0;
+		int counterLength=0;
+		int maxLength=Integer.MIN_VALUE;
+		
+		for (int i = 0; i < words.length(); i++) {
+			char symbol=words.charAt(i);
+			
+			if (symbol==' ') {
+				if (maxLength<counterLength) {
+					maxLength=counterLength;
+				}
+				counterWords++;
+				counterLength=-1;
+			}
+			counterLength++;
+		}
+		System.out.println(counterWords+1+" words, the longest word is with "+maxLength+" symbols.");
+	}
+}

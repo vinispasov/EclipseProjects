@@ -1,0 +1,8 @@
+package Message;
+import java.text.SimpleDateFormat;
+
+public abstract class Message {
+	private String author;
+	SimpleDateFormat time = new SimpleDateFormat("HH:mm");
+
+}

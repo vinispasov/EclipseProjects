@@ -1,0 +1,10 @@
+import java.util.Scanner;
+public class Task03 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String word=sc.next();
+		String word1=sc.next();
+		System.out.println(word+word1);
+	}
+
+}

@@ -1,0 +1,13 @@
+package Methods;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+
+public class Try {
+
+	public static void main(String[] args) {
+		int date=Calendar.DATE;
+		System.out.println(date);
+	}
+}

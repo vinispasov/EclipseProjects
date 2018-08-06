@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class TwoSum {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int[]arr= {2,7,11,15};
+		int target=9;
+		
+		for (int i = 0; i < arr.length; i++) {
+			int num=arr[i];
+			for (int j = i+1; j < arr.length; j++) {
+				if (num+arr[j]==target) {
+					System.out.println("["+i+","+j+"]");
+					break;
+				}
+			}
+		}
+	}
+}

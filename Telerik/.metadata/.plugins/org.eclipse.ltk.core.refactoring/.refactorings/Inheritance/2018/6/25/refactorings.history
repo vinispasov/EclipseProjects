@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;Chess.Pieces.movement&apos; in &apos;Chess.Pieces&apos;&#x0D;&#x0A;- Original project: &apos;Inheritance&apos;&#x0D;&#x0A;- Original element: &apos;Chess.Pieces.movement&apos;&#x0D;&#x0A;- Getter method name: &apos;getMovement&apos;&#x0D;&#x0A;- Setter method name: &apos;setMovement&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;movement&apos;" flags="589830" getter="getMovement" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;Chess{Pieces.java[Pieces^movement" insertion="4" setter="setMovement" stamp="1529680369546" version="1.0" visibility="1"/>
+</session>

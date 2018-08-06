@@ -1,0 +1,18 @@
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+public class HDNL_Toy {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int numInput=sc.nextInt();
+		List<String>input=new ArrayList<>();
+		for (int i = 0; i <numInput; i++) {
+			input.add(sc.nextLine());
+		}
+		for (String string : input) {
+			System.out.println(string);
+		}
+	}
+
+}

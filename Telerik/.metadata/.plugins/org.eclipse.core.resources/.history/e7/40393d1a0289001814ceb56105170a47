@@ -1,0 +1,23 @@
+package hashTable;
+import java.util.HashSet;
+public class JewelsAndStones {
+	public static void main(String[] args) {
+		System.out.println(numJewelsInStones("z","ZZ"));
+	}
+	public static int numJewelsInStones(String J, String S) {
+		
+        char[]arrJewels=J.toCharArray();
+        char[]arrStones=S.toCharArray();
+        int counter=0;
+        for (int i = 0; i < arrJewels.length; i++) {
+			for (int k = 0; k < arrStones.length; k++) {
+				if (arrJewels[i]==arrStones[k]) {
+					counter++;
+				}
+			}
+		}
+        return counter;
+      
+    }
+
+}

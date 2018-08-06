@@ -1,0 +1,36 @@
+package bankproduct;
+
+import java.util.Scanner;
+
+public class Credit extends BankProduct{
+	
+    private int monthlyFee;
+	
+    //constructor
+	public Credit(String nameOfProduct, int annualInterestRate, int periodOfProductMonthly,int monthlyFee) {
+		super(nameOfProduct, annualInterestRate, periodOfProductMonthly);
+		setMonthlyFee(monthlyFee);
+	}
+	
+	//getters and setters
+	public int getMonthlyFee() {
+		return monthlyFee;
+	}
+
+	public void setMonthlyFee(int monthlyFee) {
+		Scanner sc=new Scanner(System.in);
+		if (monthlyFee<0) {
+			while(true) {
+				System.out.println("The amount should be positive number.Try again: ");
+				monthlyFee=sc.nextInt();
+				if(monthlyFee>=0) {
+					System.out.println("The amount is correct.");
+					break;
+				}
+			}
+		}
+		this.monthlyFee = monthlyFee;
+		sc.close();
+	}
+
+}

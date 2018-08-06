@@ -1,0 +1,129 @@
+import java.util.Scanner;
+public class SecuredNotepad implements INotepad {
+	
+	 Page[]pages;
+	private String title;
+	private String password;
+	private Scanner sc=new Scanner(System.in);
+	
+	//constructor
+	SecuredNotepad(String title,int pages,String password){
+		this.title=title;
+		this.pages=new Page[pages];
+		this.password=password;
+	}
+	
+	//methods
+	@Override
+	public void addTextToPage(String text, Page page) {
+		System.out.println("Enter password:");
+		String password=sc.nextLine();
+		while (this.password==password) {
+			System.out.println("Incorrect pasword!Try again:");
+			password=sc.nextLine();
+		}
+		System.out.println("Correct password.");
+		if (page.getText().isEmpty()) {
+			 System.out.println("The page is not empty, use other method!");
+		    }
+		
+			else {
+			 page.setText(text);
+		    }
+	}
+
+	@Override
+	public void addNewTextRemoveOldOne(String text, Page page) {
+		System.out.println("Enter password:");
+		String password=sc.nextLine();
+		while (password!=this.password) {
+			System.out.println("Incorrect pasword!Try again:");
+			password=sc.nextLine();
+		}
+		System.out.println("Correct password.");
+		page.removeText();
+		page.setText(text);
+		
+	}
+
+	@Override
+	public void removeText(Page page) {
+		System.out.println("Enter password:");
+		String password=sc.nextLine();
+		while (password!=this.password) {
+			System.out.println("Incorrect pasword!Try again:");
+			password=sc.nextLine();
+		}
+		System.out.println("Correct password.");
+		
+		page.removeText();
+	}
+
+	@Override
+	public void viewAllPages() {
+		System.out.println("Enter password:");
+		String password=sc.nextLine();
+		while (password!=this.password) {
+			System.out.println("Incorrect pasword!Try again:");
+			password=sc.nextLine();
+		}
+		System.out.println("Correct password.");
+		
+		for (int i = 0; i < pages.length; i++) {
+			   this.pages[i].pageView();
+			}
+	}
+
+	@Override
+	public void searchWord(String word) {
+		System.out.println("Enter password:");
+		String password=sc.nextLine();
+		while (password!=this.password) {
+			System.out.println("Incorrect pasword!Try again:");
+			password=sc.nextLine();
+		}
+		System.out.println("Correct password.");
+		for (int i = 0; i < pages.length; i++) {
+			this.pages[i].searchWord(word);
+		}	
+	}
+
+	@Override
+	public void printAllPagesWithDigits() {
+		System.out.println("Enter password:");
+		String password=sc.nextLine();
+		while (password!=this.password) {
+			System.out.println("Incorrect pasword!Try again:");
+			password=sc.nextLine();
+		}
+		System.out.println("Correct password.");
+		for (int i = 0; i < pages.length; i++) {
+			if (this.pages[i].containsDigits()) {
+				this.pages[i].pageView();
+			}
+			else {
+				System.out.println("Page "+this.pages[i].getTitle()+" does not contains any digits.");
+			}
+		}
+	}
+
+	public Page[] getPages() {
+		return pages;
+	}
+
+	public void setPages(Page[] pages) {
+		this.pages = pages;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	
+	
+
+}

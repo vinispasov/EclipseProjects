@@ -1,0 +1,19 @@
+package Agency;
+
+import Properties.Property;
+import java.time.LocalDate;
+import Clients.Buyer;
+
+public class View {
+	
+	private Property property;
+	private Agent agent;
+	private Buyer buyer;
+	private LocalDate date;
+	
+	//constructor
+	public View(Buyer buyer,Property property,Agent agent) {
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+
+public class Task01 {
+	
+	public static void main(String[]args) {
+		int n=100;
+		int result=Numbers(n);
+		System.out.println(result);
+		
+	}
+	
+	static int Numbers(int n) {
+		if (n==1) {
+			return 1;
+		}
+		System.out.println(n=Numbers(n-1));
+		 
+				
+	}
+	
+
+}

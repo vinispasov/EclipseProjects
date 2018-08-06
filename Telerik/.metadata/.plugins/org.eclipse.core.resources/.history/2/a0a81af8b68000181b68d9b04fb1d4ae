@@ -1,0 +1,14 @@
+package bank_product;
+
+import financial_unit.Bank;
+import tools.Entity;
+import java.util.Scanner;
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		Credit credit=new Credit("pesho",1200,"0313443432207196340",Entity.CORPORATE,CreditTypeCorporate.BUSINESS,12,22000);
+	}
+	
+}

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class SendMeTheCode {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int in=sc.nextInt();
+		int a=((in/10)/10)%10;
+		int b=in/10%10;
+		int c=in%10;
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		for (int i =3; i > 0; i++) {
+			
+		}
+	}
+
+}

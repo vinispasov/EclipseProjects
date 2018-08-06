@@ -1,0 +1,10 @@
+
+public class Demo {
+	public static void main(String[] args) {
+		Computer pc1=new Computer();
+		pc1.operationSystem="Windows";
+		pc1.changeOperationSystem();
+		System.out.println(pc1);
+	}
+
+}

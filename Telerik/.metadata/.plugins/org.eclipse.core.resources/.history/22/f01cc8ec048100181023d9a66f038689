@@ -1,0 +1,8 @@
+package tools;
+
+public class OutOfAgeException extends Exception{
+  
+	public OutOfAgeException(String message) {
+		
+	}
+}

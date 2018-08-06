@@ -1,0 +1,10 @@
+package bank_product;
+
+import tools.Entity;
+
+public class main {
+
+	public static void main(String[] args) {
+		Credit credit=new Credit("Pesho",1200,"9607196340",Entity.PHYSICAL,CreditTypePhysical.CUSTOM,12,5000);
+	}
+}

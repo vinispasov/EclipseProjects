@@ -1,0 +1,11 @@
+package FinancialUnit;
+import java.util.List;
+
+import bank_product.BankProduct;
+
+public class Bank extends FinancialUnit {
+
+    List<BankProduct> bankProductList;
+
+
+}

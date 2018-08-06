@@ -1,0 +1,14 @@
+package Vignette;
+
+public class CarVignette extends Vignette {
+	 
+	//constructor
+	public CarVignette(){
+		this.setColor("blue");
+		this.setPriceDay(5);
+		this.setPriceMonth(this.getPriceDay()*10);
+		this.setPriceYear(this.getPriceMonth()*6);
+		
+	}
+
+}

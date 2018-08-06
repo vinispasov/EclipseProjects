@@ -1,0 +1,11 @@
+package Properties;
+
+enum TypeParcels{
+	CORNFIELD,WOOD,MEADOW
+}
+public class Parcel extends Property{
+	private boolean isRegulated;
+	
+	
+
+}

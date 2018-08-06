@@ -1,0 +1,11 @@
+package Properties;
+
+enum TypeApartment{
+	ATELIER,STUDIO,TWO_ROOM_APARTMENT,THREE_ROOM_APARTMENT,MAISONETTE
+}
+
+public class Apartment extends Property{
+	private String constructionType;
+	
+
+}

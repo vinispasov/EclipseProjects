@@ -1,0 +1,28 @@
+package superheroesUniverse.SuperheroesUniverse;
+
+enum PowerType{
+	MAGIC, CHEMICHAL, INTELLECT, TECH, OTHER;
+}
+public class Powers {
+
+	private String name;
+	private PowerType powerType;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public PowerType getPowerType() {
+		return powerType;
+	}
+	public void setPowerType(PowerType powerType) {
+		this.powerType = powerType;
+	}
+	
+	Powers(String name,PowerType powerType){
+		setName(name);
+		setPowerType(powerType);
+	}
+}

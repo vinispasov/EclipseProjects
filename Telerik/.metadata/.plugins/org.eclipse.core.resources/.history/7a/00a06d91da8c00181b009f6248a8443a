@@ -1,0 +1,48 @@
+package hashTable;
+import java.util.Scanner;
+
+public class PlusOneMultiplyOne {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.nextLine();
+		int n=input.charAt(0)-'0';
+		int m=input.charAt(2)-'0';
+		int counter=0;
+		int counterChangeS=0;
+		int helper=n;
+		int result=n;
+		int s1=n;
+		int s2=0;
+		int s3=0;
+		
+		for (int i = 0; i < m; i++) {
+			if (counterChangeS==1||counterChangeS==0) {
+				helper=s1+1;
+			}
+			else if (counterChangeS==2) {
+				helper=s2;
+			}
+			else if(counterChangeS==3) {
+				helper=s3;
+				counterChangeS=1;
+			}
+			if (counter==1) {
+				s1=helper;
+				result=s1;
+			}
+			else if(counter==2) {
+				s2=(s1*2)+1;
+				result=s2;
+			}
+			else if(counter==3) {
+				s3=s1+2;
+				result=s3;
+				counter=0;
+				++counterChangeS;
+			}
+			++counter;
+		}
+		System.out.println(result);
+	}
+
+}

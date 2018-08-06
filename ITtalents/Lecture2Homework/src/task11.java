@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class task11 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter number(Do not enter number with digit '0'!):");
+	
+	String number =sc.nextLine(); 
+	int num=Integer.parseInt(number);;
+	int a=number.charAt(0)-'0';    
+	int b=number.charAt(1)-'0';    
+	int c=number.charAt(2)-'0';
+	if (num%a==0&&num%b==0&&num%c==0) {
+		System.out.println("The number is divisible on every single digit");
+	}
+	else {
+		System.out.println("The number is not divisible on every single digit");
+	}
+}
+}

@@ -1,0 +1,29 @@
+package RecursionTasks;
+import java.util.Scanner;
+public class HorsePath {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int size=sc.nextInt();
+		int [][]arr=new int[size][size];
+		
+		findHorsePath(0,0,size,arr,0);
+	}
+	
+	static int[][] findHorsePath(int x,int y,int size,int[][]arr,int n){
+		boolean[][]boolMasiv=new boolean[size][size];
+		if (n>=size*size) {
+			return arr;
+		}
+		
+		if (condition) {
+			
+		}
+		
+		
+    }
+		
+		
+	}
+	}

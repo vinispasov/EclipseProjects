@@ -1,0 +1,19 @@
+package Clients;
+
+import Properties.Property;
+import java.util.Random;
+public class Seller extends Client {
+	
+	private Property property;
+	
+	//constructor
+	
+	public Seller(String name, String phone) {
+		super(name, phone);
+		
+		Random r=new Random();
+		r.nextInt(3);
+	}
+
+
+}

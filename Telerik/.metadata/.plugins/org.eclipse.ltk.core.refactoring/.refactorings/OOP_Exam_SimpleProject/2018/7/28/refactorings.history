@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;models.Todo.state&apos; in &apos;models.Todo&apos;&#x0D;&#x0A;- Original project: &apos;OOP_Exam_SimpleProject&apos;&#x0D;&#x0A;- Original element: &apos;models.Todo.state&apos;&#x0D;&#x0A;- Getter method name: &apos;getState&apos;&#x0D;&#x0A;- Setter method name: &apos;setState&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;state&apos;" flags="589830" getter="getState" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;models{Todo.java[Todo^state" insertion="0" setter="setState" stamp="1531493702200" version="1.0" visibility="1"/>
+</session>

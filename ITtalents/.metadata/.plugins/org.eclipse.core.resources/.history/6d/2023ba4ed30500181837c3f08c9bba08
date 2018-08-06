@@ -1,0 +1,15 @@
+
+public class NotepadDemo {
+	public static void main(String[] args) {
+		ElectronicSecuredNotepad myNotepad=new ElectronicSecuredNotepad("Notepad",5,"parola");
+		for (int i = 0; i < myNotepad.pages.length-1; i++) {
+			myNotepad.pages[i].setTitle(i);
+		}
+		System.out.println(myNotepad.isStarted());
+		myNotepad.start();
+		System.out.println(myNotepad.isStarted());
+		myNotepad.addTextToPage("dafafa",myNotepad.pages[2]);
+		
+	}
+
+}

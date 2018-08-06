@@ -1,0 +1,20 @@
+
+public class Task01 {
+	
+	public static void main(String[]args) {
+		int n=0;
+		System.out.println(Numbers(n));
+		
+	}
+	
+	static int Numbers(int n) {
+		if (n==100) {
+			return 100;
+		}
+		
+		return n=Numbers(n+1);
+				
+	}
+	
+
+}

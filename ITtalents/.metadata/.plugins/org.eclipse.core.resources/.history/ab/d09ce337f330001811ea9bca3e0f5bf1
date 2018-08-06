@@ -1,0 +1,43 @@
+package Traders;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormat;
+
+import Couriers.Courier;
+import Couriers.RetailCourier;
+
+public class Peddler extends Trader implements ITrader{
+	
+	private Courier courier;
+
+	public Peddler(String name, String addres, int money, RetailCourier courier) {
+		super(name, addres, money);
+		this.courier=courier;
+	}
+
+	
+	@Override
+	public void makeOrder(RetailCourier c,String product) {
+		double sum=0;
+		DecimalFormat d = new DecimalFormat("#.##");
+		for (int i = 0; i <1; i++) {
+			
+			if (c.getProducts().containsKey(product)&&c.getProducts().get(product)<=this.getMoney()/2) {
+				sum+=c.getProducts().get(product);
+				this.setMoney(this.getMoney()-c.getProducts().get(product));
+				System.out.println("Sum: "+d.format(sum));
+			}
+			else {
+				if (c.getProducts().containsKey(product)) {
+					System.out.println("Doesn't have enough money.");
+				}
+				else {
+				System.out.println("Doesn't have such a product");
+				}
+			}
+		}
+		
+	}
+	
+
+}

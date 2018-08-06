@@ -1,0 +1,141 @@
+package Traders;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import Couriers.RetailCourier;
+import Shops.CommercialSite;
+import Shops.MarketStall;
+import Shops.StreetKiosk;
+
+import java.util.Random;
+public class SoleTrader extends Trader implements ITrader {
+	
+	private ArrayList<RetailCourier>couriers;
+	private CommercialSite shop;
+
+	public SoleTrader(String name, String addres, int money) {
+		super(name, addres, money);
+		this.couriers=new ArrayList();
+	}
+
+	
+	@Override
+    public void makeOrder(RetailCourier c,String product) {
+		double sum=0;
+		DecimalFormat d = new DecimalFormat("#.##");
+		for (int i = 0; i <1; i++) {
+			
+			if (c.getProducts().containsKey(product)&&c.getProducts().get(product)<=this.getMoney()/2) {
+				this.shop.getProducts().put(product,c.getProducts().get(product));
+				sum+=c.getProducts().get(product);
+				this.setMoney(this.getMoney()-c.getProducts().get(product));
+				System.out.println("Sum: "+d.format(sum));
+			}
+			else {
+				if (c.getProducts().containsKey(product)) {
+					System.out.println("Doesn't have enough money.");
+				}
+				else {
+				System.out.println("Doesn't have such a product");
+				}
+			}
+		}
+	}
+	
+	
+	
+	public ArrayList<RetailCourier> getCouriers() {
+		return couriers;
+	}
+
+
+
+
+
+	public void setCouriers(ArrayList<RetailCourier> couriers) {
+		this.couriers = couriers;
+	}
+
+
+
+
+
+	public CommercialSite getShop() {
+		return shop;
+	}
+
+
+
+
+
+	public void setShop(CommercialSite shop) {
+		if (shop.getClass().getName().equals("Shops.MarketStall")
+				||shop.getClass().getName().equals("Shops.StreetKiosk")) {
+			this.shop = shop;
+		}
+		else {
+		    System.out.println("This trader can not have this type of commercial site.");
+		}
+	}
+
+
+
+
+
+	public int random(int n) {
+		Random r=new Random();
+		return r.nextInt(n);
+	}
+
+
+	@Override
+	public void getTurnover() {
+		
+		int r=random(3);
+		DecimalFormat d = new DecimalFormat("#.##");
+		System.out.println("money before: "+d.format(this.getMoney()));
+		if (this.getShop().getProducts().containsKey("Meso")) {
+			
+		}
+		switch (r) {
+		case 0:
+			this.setMoney(this.getMoney()
+				+(this.getShop().getProducts().get("Meso")*1.3)
+				+(this.getShop().getProducts().get("Domati")*1.3)
+				+(this.getShop().getProducts().get("Krastavici")*1.3));
+			
+			   this.getShop().getProducts().remove("Meso");
+		       this.getShop().getProducts().remove("Domati");
+		       this.getShop().getProducts().remove("Krastavici");
+			break;
+		case 1:
+			this.setMoney(this.getMoney()
+				+(this.getShop().getProducts().get("Meso")*1.3)
+				+(this.getShop().getProducts().get("Konservi")*1.3)
+				+(this.getShop().getProducts().get("Riba")*1.3));
+			
+			   this.getShop().getProducts().remove("Meso");
+	           this.getShop().getProducts().remove("Konservi");
+	           this.getShop().getProducts().remove("Riba");
+	           break;
+		case 2:this.setMoney(this.getMoney()
+				+(this.getShop().getProducts().get("Domati")*1.3)
+				+(this.getShop().getProducts().get("Podpravki")*1.3)
+				+(this.getShop().getProducts().get("Yabulki")*1.3));
+			
+			   this.getShop().getProducts().remove("Domati");
+               this.getShop().getProducts().remove("Podpravki");
+               this.getShop().getProducts().remove("Yabulki");
+               break;
+
+		default:
+			break;
+		}
+		System.out.println("money after: "+d.format(this.getMoney()));
+	}
+	public void payTax() {
+		DecimalFormat d=new DecimalFormat();
+		System.out.println("money before Tax: "+d.format(this.getMoney()));
+		this.setMoney(this.getMoney()-this.getShop().getTax());
+		System.out.println("money after Tax: "+d.format(this.getMoney()));
+	}
+}

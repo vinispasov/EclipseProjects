@@ -1,0 +1,10 @@
+
+public class NotepadDemo {
+	public static void main(String[] args) {
+		ElectronicSecuredNotepad s=new ElectronicSecuredNotepad("Dnevnik",10,"levski");
+		
+		s.addTextToPage(1, "zdravei");
+		
+	}
+
+}

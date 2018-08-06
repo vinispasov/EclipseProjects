@@ -1,0 +1,74 @@
+package homework2Lesson16Encapsulation;
+
+public class Employee {
+	private String name;
+	private Task currentTask;
+	private int hoursLeft;
+	
+	//constructor
+	Employee(String name){
+		setName(name);
+	}
+	
+	//setters
+	public void setName(String name) {
+		if (name!=" ") {
+			this.name=name;
+		}
+		else {
+			System.out.println("The name is incorrect!");
+		}
+	}
+	public void setCurrentTask(Task currentTask) {
+	     this.currentTask=currentTask;
+	}
+	public void setHoursLeft(int hoursLeft) {
+		if (hoursLeft>=0) {
+			this.hoursLeft=hoursLeft;
+		}
+		else {
+			System.out.println("Incorrect number for hours left!");
+		}	
+	}
+	
+	//getters
+	
+	public String getName() {
+		return this.name;
+	}
+	public Task getCurrentTask() {
+		return this.currentTask;
+	}
+	public int getHoursLeft() {
+		return this.hoursLeft;
+	}
+	
+	//methods
+	
+	public void work(Task currentTask) {
+		if (this.currentTask.getName()!=null) {
+			if (this.hoursLeft>this.currentTask.getWorkingHours()) {
+				this.hoursLeft-=this.currentTask.getWorkingHours();
+			}
+			else if (this.currentTask.getWorkingHours()>hoursLeft) {
+				this.currentTask.setWorkingHours(this.currentTask.getWorkingHours()-hoursLeft);
+			}
+			else {
+				setHoursLeft(0);
+				this.currentTask.setWorkingHours(0);
+			}
+		}
+		
+	}
+	
+	public void showReport() {
+		System.out.println("Name of employee: "+getName());
+		System.out.println("Current task name: "+ this.currentTask.getName());
+		System.out.println("Hours left to work: "+getHoursLeft());
+		System.out.println("Hours left for the task: "+this.currentTask.getWorkingHours());
+	}
+	
+	
+	
+
+}

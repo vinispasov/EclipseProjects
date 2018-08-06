@@ -1,0 +1,33 @@
+
+public class task12 {
+	
+
+	public static void main(String[] args) {
+		
+		
+		
+		String number ="100"; 
+		int num=Integer.parseInt(number);;
+		int a=number.charAt(0)-'0';   
+		int b=number.charAt(1)-'0';    
+		int c=number.charAt(2)-'0';
+		
+		for (int i =1; i <=9; i++) {
+			a++;
+			for (int j =10; j <=99; j++) {
+				b++;
+				for (int j2 =100; j2 <=999; j2++) {
+					c++;
+					if (!(a==b&&b==c)) {
+						System.out.println(j2);
+					}
+				}
+			}
+			
+		}
+		
+		
+	}
+	}
+
+

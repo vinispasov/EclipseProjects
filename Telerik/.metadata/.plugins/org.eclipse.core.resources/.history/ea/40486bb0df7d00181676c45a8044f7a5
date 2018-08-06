@@ -1,0 +1,71 @@
+package bank_product;
+import java.util.Scanner;
+
+import tools.Entity;
+
+public abstract class BankProduct {
+
+	
+	private static final int ID_NUMBERS = 10;
+	private static final int BULSTAT_NUMBER_NINE =9;
+	private static final int BULSTAT_NUMBER_THIRTEEN =13;
+	private int rate;
+	private int periodOfProductMonthly;
+	private double accountBalance;
+	private int tax;
+	private String idOrBulstat;
+	
+	//constructors
+	public BankProduct() {
+		this.rate =0;
+		this.periodOfProductMonthly =0;
+		this.accountBalance = 0;
+		this.setTax(0);
+		this.setIdOrBulstat("");
+	}
+
+	//getters and setters
+	public int getAnnualInterestRate() {
+		return rate;
+	}
+
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+
+	public int getPeriodOfProductMonthly() {
+		return periodOfProductMonthly;
+	}
+
+	void setPeriodOfProductMonthly(int period){
+		this.periodOfProductMonthly=period;
+	}
+	
+
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public String getIdOrBulstat() {
+		return idOrBulstat;
+	}
+
+	void setIdOrBulstat(String idOrBulstat) {
+		this.idOrBulstat=idOrBulstat;
+	}
+
+	public int getTax() {
+		return tax;
+	}
+ 
+	public void setTax(int tax) {
+		this.tax = tax;
+	}
+	
+
+	
+}

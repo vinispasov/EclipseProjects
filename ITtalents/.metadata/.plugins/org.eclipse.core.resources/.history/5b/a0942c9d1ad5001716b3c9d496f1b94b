@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Task02 {
+public static void main(String[]args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the volume of array:");
+	int[]arr=new int[sc.nextInt()];
+	
+	for (int i = 0; i < arr.length; i++) {
+		System.out.println("Enter number:");
+		arr[i]=sc.nextInt();
+	}
+	
+	int[]newArr=new int[arr.length];
+	for (int i = 0; i < newArr.length; i++) {
+		if (i>newArr.length/2) {
+			for (int j = (newArr.length-1)/2; j<newArr.length; j--) {
+				newArr[j]=arr[j];
+			}
+			break;
+		}
+		else {
+			newArr[i]=arr[i];
+		}
+	}
+	
+	
+	
+	for (int i = 0; i < newArr.length; i++) {
+		System.out.print(newArr[i]+" ");
+	}
+	
+}
+}

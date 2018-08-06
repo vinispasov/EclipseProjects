@@ -1,0 +1,13 @@
+package Methods;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+
+public class Try {
+
+	public static void main(String[] args) {
+		Calendar.getInstance().getTime();
+		System.out.println(Calendar.getInstance().getTime());
+	}
+}

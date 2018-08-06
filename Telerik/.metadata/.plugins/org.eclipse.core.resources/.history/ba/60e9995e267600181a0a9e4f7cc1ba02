@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class Person {
+	private String name;
+	private int weight;
+	private boolean isMale;
+	
+	public Person(String name, int weight, boolean isMale) {
+		setName(name);
+		setWeight(weight);
+		setMale(isMale);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		Scanner sc=new Scanner(System.in);
+		while (weight<0||weight>500) {
+			System.out.println("Invalid input,try again!");
+			weight=sc.nextInt();
+		}
+		this.weight = weight;
+	}
+
+	public boolean isMale() {
+		return isMale;
+	}
+
+	public void setMale(boolean isMale) {
+		this.isMale = isMale;
+	}
+	
+	
+	
+
+}

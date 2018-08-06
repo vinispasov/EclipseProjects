@@ -1,0 +1,148 @@
+package financial_unit;
+
+import bank_product.Account;
+import bank_product.BankProduct;
+import bank_product.Credit;
+import java.util.ArrayList;
+import bank_product.Deposit;
+import java.util.List;
+import java.util.Scanner;
+
+import tools.Entity;
+
+public class Client extends FinancialUnit {
+
+	//available currency for client
+	private static final int MIN_AVAILABLE_CURRENCY=0;
+	private static final int MAX_AVAILABLE_CURRENCY=0;
+	private static final int ID_NUMBERS = 0;
+	private static final int BULSTAT_NUMBER_NINE = 0;
+	private static final int BULSTAT_NUMBER_THIRTEEN = 0;
+	//fields
+    private int monthlySalary;
+    private Entity entity;
+    private String idOrBulstat;
+    private List<Account> bankAccounts=new ArrayList<Account>();
+    
+
+
+	public Client(String name, String address, int availableCurrency,String idOrBulstat,int monthlySalary,Entity entity) {
+		super(name, address, availableCurrency);
+		
+	}
+
+
+   
+
+
+
+
+    public int getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    // Monthly salary must be of only numeric characters.
+    public void setMonthlySalary(int monthlySalary) {
+        this.monthlySalary = monthlySalary;
+    }
+
+    public String getIdOrBulstat() {
+        return idOrBulstat;
+    }
+
+    public void setIdOrBulstat(String idOrBulstat) {
+    	 boolean isWrongId=false;
+	    	if(idOrBulstat.length()==ID_NUMBERS) {
+	    		for (Character ch : idOrBulstat.toCharArray()) {
+	    			if(!Character.isDigit(ch)) {
+	    				isWrongId=true;
+	    				break;
+	    			}
+					
+				}
+	    		if (!isWrongId) {
+	    			 this.idOrBulstat=idOrBulstat;
+				}
+		    }
+			else if(idOrBulstat.length()==BULSTAT_NUMBER_NINE
+						||idOrBulstat.length()==BULSTAT_NUMBER_THIRTEEN) {
+				this.idOrBulstat=idOrBulstat;
+		    }
+	    	isWrongId=true;
+			if (isWrongId) {
+				 Scanner sc=new Scanner(System.in);
+			      System.out.println("Personal Id should be 10 digits.Bulstat should be 9 or 13 digits.Try again here: ");
+			     idOrBulstat=sc.nextLine();
+				 setIdOrBulstat(idOrBulstat);
+			  }
+    }
+
+    // the client initiates the transaction.
+    public void requestCredit() {
+
+    }
+
+    public void payCredit() {
+
+    }
+
+    public void giveDeposit() {
+
+    }
+
+
+
+
+	public Entity getEntity() {
+		return entity;
+	}
+
+
+	@Override
+	public void setName(String name) {
+		boolean containDigit=true;
+		   Scanner sc=new Scanner(System.in);
+		   
+			while(containDigit||name.isEmpty()||name==null||name.length()<getMinSizeOfName()) {
+				containDigit=false;
+			 for (Character ch : name.toCharArray()) {
+				 if (ch==' ') {
+					continue;
+				}
+				if (!Character.isAlphabetic(ch)) {
+					containDigit=true;
+					break;
+				}
+			 }
+			    if (containDigit||name.isEmpty()||name==null||name.length()<getMinSizeOfName()) {
+			    	System.out.println("Invalid name entered.Try again:");
+			    	name=sc.nextLine();
+				}
+			}
+			sc.close();
+		super.setCorrectName(name);
+	}
+
+	@Override
+	 public void setAvailableCurrency(int availableCurrency) {
+		Scanner sc=new Scanner(System.in);
+		while (availableCurrency<MIN_AVAILABLE_CURRENCY||availableCurrency>MAX_AVAILABLE_CURRENCY) {
+			System.out.println("Available currency for client should be between: "+MIN_AVAILABLE_CURRENCY+" and "+MAX_AVAILABLE_CURRENCY);
+			availableCurrency=sc.nextInt();
+		}
+		sc.close();
+		setCorrectAvailableCurrency(availableCurrency);
+	}
+
+	public List<Account> getBankAccountsList() {
+		return bankAccounts;
+	}
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,18 @@
+
+public class Task03 {
+	public static void main(String[]args) {
+		int n=-10;
+		int result=Counter(n);
+		System.out.println(result);
+	}
+	static int Counter(int m) {
+		if (m==9) {
+			return 9;
+		}
+		if (m%2!=0) {
+			System.out.println(m);
+		}
+		return m=Counter(m+1);
+	}
+
+}

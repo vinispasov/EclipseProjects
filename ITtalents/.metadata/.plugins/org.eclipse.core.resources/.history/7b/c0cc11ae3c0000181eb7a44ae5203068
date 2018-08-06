@@ -1,0 +1,35 @@
+
+public class Student extends Person{
+	
+	private double score;
+	
+	//constructors
+	public Student(String name, int age, boolean isMale,double score) {
+		super(name,age,isMale);
+		setScore(score);	
+	}
+	
+	//methods
+	void showPersonInfo() {
+		showPersonInfo();
+		getScore();
+	}
+
+	//getters
+	public double getScore() {
+		return score;
+	}
+	//setters
+	public void setScore(double score) {
+		if (score>=2&&score<=6) {
+			this.score = score;
+		}
+		else {
+			System.out.println("Incorrect score entered!");
+		}
+		
+	}
+	
+	
+
+}

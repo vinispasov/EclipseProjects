@@ -1,0 +1,25 @@
+package bank_product;
+
+import tools.CreditNotApprovedException;
+
+public class BankCards extends BankProduct {
+	//fields
+    private int annualMaintenance;
+    private double withdrawTax;
+
+    //constructore
+    public BankCards(String name, String idOrBulstat, int incomesMonthly, int annualMaintenance,double withdrawTax) throws CreditNotApprovedException {
+        super(name, idOrBulstat, incomesMonthly);
+        this.annualMaintenance = annualMaintenance;
+        this.withdrawTax=withdrawTax;
+    }
+
+    //getters and setters
+    public int getAnnualMaintenance() {
+        return annualMaintenance;
+    }
+
+    public double getWithdrawTax() {
+        return withdrawTax;
+    }
+}

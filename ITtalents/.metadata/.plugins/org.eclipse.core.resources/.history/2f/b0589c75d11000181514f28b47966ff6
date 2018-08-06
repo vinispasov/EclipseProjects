@@ -1,0 +1,8 @@
+import Vignette.Vignette;
+
+public abstract class Vehicle {
+	private String model;
+	private Vignette vignette;
+	private int yearOfProducing;
+
+}

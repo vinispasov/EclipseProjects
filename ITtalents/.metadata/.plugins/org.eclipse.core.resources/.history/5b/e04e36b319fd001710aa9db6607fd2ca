@@ -1,0 +1,19 @@
+
+public class Carshop {
+	static private Car[]cars;
+	
+	//constructors
+	
+	Carshop(int capacity){
+		this.cars=new Car[capacity];
+	}
+
+	//methods
+    static boolean addCar(Car car) {
+    	int counter=0;
+    	cars[counter]=car;
+    	counter++;
+    	return true;
+    }
+
+}

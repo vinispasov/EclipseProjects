@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Task15 {
+	
+public static void main(String[] args) {
+	
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the volume of array:");
+	double maxNum=Integer.MIN_VALUE;
+	double maxNum1=Integer.MIN_VALUE;
+	double maxNum2=Integer.MIN_VALUE;
+	double[]arr=new double[sc.nextInt()];
+    
+	
+	for (int i = 0; i < arr.length; i++) {
+		System.out.println("Enter number:");
+		arr[i]=Math.abs(sc.nextDouble());
+		if (maxNum<arr[i]) {
+			maxNum=arr[i];
+		}
+		if (maxNum1<maxNum) {
+			maxNum1=maxNum;
+		}
+		if (maxNum2<maxNum1) {
+			maxNum2=maxNum1;
+		}
+		
+	}	
+	System.out.println(maxNum2+" "+maxNum1+" "+maxNum);
+	
+	
+}
+}

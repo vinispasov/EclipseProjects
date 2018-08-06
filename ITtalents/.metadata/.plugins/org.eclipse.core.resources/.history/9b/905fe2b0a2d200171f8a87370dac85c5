@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class task17 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter number:");
+	String number=sc.nextLine();
+	int num=Integer.parseInt(number);
+	
+	for (int i =1; i <=number; i++) {
+		System.out.print('*');
+	}
+	
+}
+}

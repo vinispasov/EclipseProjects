@@ -1,0 +1,51 @@
+package bank_product;
+import java.util.Scanner;
+
+import tools.Entity;
+
+enum CreditType{
+	CUSTOM,RESIDENTIAL,STUDENT,FAST;
+}
+public class Credit extends BankProduct{
+	
+    private static final double FORTY_PERCENT =0.4;
+	private static final int HUNDRED = 100;
+	private double monthlyFee;
+    
+	
+    //constructor
+	public Credit(Entity entity,CreditType creditType,int periodOfProductMonthly,int amount,int incomes) {
+	  
+		isApproved(periodOfProductMonthly,amount,incomes);
+		
+	}
+	
+	//getters and setters
+	public double getMonthlyFee() {
+		return monthlyFee;
+	}
+
+	//methods
+	
+	private boolean isApproved(int periodMonths,int amount,int incomes,int rate) {
+		double monthlyFee=amount/periodMonths;
+		double rateAmount=monthlyFee*(rate/HUNDRED);
+		double result=monthlyFee+rateAmount;
+		double maxMonthFee=incomes*FORTY_PERCENT;
+		if (result<=maxMonthFee) {
+			this.monthlyFee=result;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	@Override
+	public void setPeriodOfProductMonthly(int period,int minPeriod,int maxPeriod){
+		if (period) {
+			
+		}
+	}
+
+}

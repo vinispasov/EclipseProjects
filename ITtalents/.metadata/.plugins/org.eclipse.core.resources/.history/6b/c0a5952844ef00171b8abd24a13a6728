@@ -1,0 +1,22 @@
+
+public class task01 {
+	public static void main(String[] args) {
+		int[]arr= {4,3,5,2};
+		int[]arr1= {1,6,7};
+		int[]result=new int[arr.length+arr1.length];
+		System.out.println(convertArrays(arr,arr1));
+		
+		
+	}
+	static int[]convertArrays(int[]arr,int[]arr1){
+		int[]masiv=new int[arr.length+arr1.length];
+		for (int i = 0; i < arr.length; i++) {
+			masiv[i]=arr[i];
+		}
+		for (int i = 0; i < arr1.length; i++) {
+			masiv[i]=arr1[i];
+		}
+		return masiv;
+	}
+
+}

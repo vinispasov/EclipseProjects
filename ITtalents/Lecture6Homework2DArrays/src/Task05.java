@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Task05 {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+	     
+			int[][]arr=new int[4][4];
+			int maxSumRows=Integer.MIN_VALUE;
+			int maxSumCols=Integer.MIN_VALUE;
+			
+			int sumRows=0;
+			int sumCols=0;
+
+			for (int i = 0; i <4; i++) {
+				for (int j = 0; j <4; j++) {
+				System.out.println("Enter number:");
+				arr[i][j]=sc.nextInt();
+				}
+		    }
+			
+			for (int rows = 0; rows < arr.length; rows++) {
+				sumRows=0;
+				sumCols=0;
+				for (int cols = 0; cols < arr.length; cols++) {
+					
+					
+					if (rows==0) {
+						sumRows+=arr[0][cols];
+					}
+					else if (rows==1) {
+						sumRows+=arr[1][cols];
+					}
+					else if (rows==2) {
+						sumRows+=arr[2][cols];
+					}
+					else if (rows==3) {
+						sumRows+=arr[3][cols];
+					}
+					
+					if (maxSumRows<sumRows) {
+						maxSumRows=sumRows;
+					}
+					
+						sumCols+=arr[cols][rows];
+				
+					
+				}
+				if (maxSumCols<sumCols) {
+					maxSumCols=sumCols;
+				}
+			}
+			
+			System.out.println("The max sum on rows is:"+maxSumRows);
+			System.out.println("The max sum on cols is:"+maxSumCols);
+			if (maxSumRows>maxSumCols) {
+				System.out.println("Max sum on rows > Max sum on cols.");
+			}
+			else if (maxSumRows==maxSumCols) {
+				System.out.println("Max sum on rows = Max sum on cols.");
+			}
+			else {
+				System.out.println("Max sum on rows < Max sum on cols.");
+			}
+	}
+
+}

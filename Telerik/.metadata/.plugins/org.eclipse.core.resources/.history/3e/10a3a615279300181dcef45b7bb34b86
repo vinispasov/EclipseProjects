@@ -1,0 +1,93 @@
+package DSA_Practice;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.Stack;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+public class Actions {
+
+	public static <T> void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.nextLine();
+		int actionsCount=input.charAt(0)-'0';
+		int dependeciesCount=input.charAt(2)-'0';
+		
+		Graph graph=new Graph(actionsCount);
+		
+		
+		for (int i = 0; i < dependeciesCount; i++) {
+			String dependecies=sc.nextLine();
+			int a=dependecies.charAt(0)-'0';
+			int b=dependecies.charAt(2)-'0';
+			graph.addEdge(a, b);
+		}
+		Stack<Integer> stack=new Stack<>();
+		Set<Integer>visited=new HashSet<>();
+		
+		solve(graph,stack,visited);
+		
+		while(!stack.isEmpty()) {
+			System.out.println(stack.peek());
+			stack.pop();
+		}
+		
+		
+	}
+	
+	public static void solve(Graph graph,Stack<Integer> stack,Set<Integer>visited) {
+		
+		for (int i = graph.vertices.size()-1; i>= 0; i--) {
+			 
+				if (visited.contains(i)) {
+					continue;
+				}
+				sort(graph,stack,visited);
+				if (visited.contains(i)) {
+					continue;
+				}
+			    visited.add(i);
+			    stack.push(i);
+		}
+		
+	}
+	
+	
+	
+	
+	private static void sort(Graph graph, Stack<Integer> stack, Set<Integer> visited) {
+		
+	 for (int j = 0; j < graph.vertices.size(); j++) {
+			
+		for (Integer integer : graph.vertices.get(j)) {
+			if (visited.contains(integer)) {
+				continue;
+			}
+			visited.add(integer);
+			stack.push(integer);
+		}
+	 }	
+	}
+
+
+
+
+	static class Graph{
+		
+		private List<List<Integer>>vertices;
+		
+		public Graph (int n){
+			
+			vertices=new ArrayList<>();
+			for (int i = 0; i <n; i++) {
+				vertices.add(new ArrayList<>());
+			}
+		}
+
+		public void addEdge(int from,int to) {
+			vertices.get(from).add(to);
+			
+		}
+		
+	}
+}

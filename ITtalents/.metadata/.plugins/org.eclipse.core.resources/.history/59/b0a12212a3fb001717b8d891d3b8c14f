@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Computer {
+	Scanner sc=new Scanner(System.in);
+	//state
+	int year;
+	double price;
+	boolean isNotebook;
+	int hardDiskMemory;
+	int freeMemory;
+	String operationSystem;
+	//behavior
+	
+	void changeOperationSystem() {
+		System.out.println("Enter new operation system:");
+		String newOperationSystem=sc.nextLine();
+		operationSystem=newOperationSystem;	
+	}
+	void useMemory() {
+		System.out.println("Enter memory use:");
+	   int useMemory=sc.nextInt();
+	   if (useMemory>=freeMemory) {
+		System.out.println("Not enough free memory!");
+	   }
+	   else {
+		freeMemory-=useMemory;
+		System.out.println("Free memory: "+freeMemory);
+	   }
+	}
+	
+}
+
+

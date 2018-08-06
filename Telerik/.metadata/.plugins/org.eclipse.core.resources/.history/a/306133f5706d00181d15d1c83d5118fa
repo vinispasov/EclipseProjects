@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class SendMeTheCode {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int in=sc.nextInt();
+		int a=((in/10)/10)%10;
+		int b=in/10%10;
+		int c=in%10;
+		int result=0;
+		StringBuilder sb=new StringBuilder();
+		
+			if (a%2==0) {
+				result+=Math.pow(a, 2)*3;
+			}else {
+				result+=a*Math.pow(3, 2);
+			}
+			if (b%2==0) {
+				result+=Math.pow(b, 2)*2;
+			}else {
+				result+=b*Math.pow(2, 2);
+			}
+			if (c%2==0) {
+				result+=Math.pow(c, 2)*1;
+			}else {
+				result+=c*Math.pow(1, 2);
+			}
+		int s=result%26;
+		for (int i = 0; i < 6; i++) {
+			       s++;
+			if (s>=27) {
+				int diff=s-27;
+				s=diff;
+			}
+			char ch=(char) (s+64);
+			System.out.println(ch);
+			
+		}
+	}
+
+}

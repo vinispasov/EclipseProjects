@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Task02 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter two words with minimum 10 characters, up to 20:");
+		String firstWord=sc.next();
+		String secondWord=sc.next();
+		
+		String cutFirst=firstWord.substring(0, 5);
+		String cutFirstBack=firstWord.substring(5);
+		String cutSecond=secondWord.substring(0, 5);
+		System.out.println(cutFirstBack);
+	}
+
+}

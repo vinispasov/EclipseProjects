@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class task22 {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+	
+	System.out.println("Enter number:");
+	   int num=sc.nextInt();
+	   
+	   while(!(num>=1&&num<1001)) {
+			System.out.println("Invalid number, try again:");
+			   num=sc.nextInt();
+		   }
+	   int counter=num;
+	   int numbering=0;
+	   while (counter!=1014) {
+		   counter++;
+		   if ((counter%2==0
+				   ||counter%3==0
+				   ||counter%5==0)&&numbering<=9) {
+			for (int i =1; i <=1; i++) {
+		  
+				numbering++;
+				System.out.println(numbering +":"+counter);
+			
+		}
+		
+		   }		
+	}
+}
+}

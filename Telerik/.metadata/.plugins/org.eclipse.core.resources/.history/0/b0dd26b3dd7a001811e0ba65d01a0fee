@@ -1,0 +1,20 @@
+package BankProduct;
+
+public class Deposit extends BankProduct{
+
+	private int monthlyPaidAmount;
+	
+	public Deposit(String nameOfProduct, int annualInterestRate, int periodOfProductMonthly,int monthlyPaidAmount) {
+		super(nameOfProduct, annualInterestRate, periodOfProductMonthly);
+		this.setMonthlyPaidAmount(monthlyPaidAmount);
+	}
+
+	public int getMonthlyPaidAmount() {
+		return monthlyPaidAmount;
+	}
+
+	public void setMonthlyPaidAmount(int monthlyPaidAmount) {
+		this.monthlyPaidAmount = monthlyPaidAmount;
+	}
+
+}

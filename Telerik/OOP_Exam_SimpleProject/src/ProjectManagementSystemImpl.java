@@ -1,0 +1,95 @@
+import java.util.Date;
+import java.util.List;
+
+import base.ProjectManagementSystem;
+import models.Task;
+import models.TaskPriority;
+import models.Ticket;
+import models.TicketPriority;
+import models.Todo;
+import models.TodoState;
+import models.base.Item;
+import java.util.ArrayList;
+public class ProjectManagementSystemImpl implements ProjectManagementSystem {
+
+	//fields
+	private List<Item>listAll;
+	private List<Ticket>listTickets;
+	private List<Task>listTasks;
+	private List<Todo>listTodo;
+	
+	//constructor
+	public ProjectManagementSystemImpl() {
+		super();
+		listAll = new ArrayList<Item>();
+		listTickets = new ArrayList<Ticket>();
+		listTasks = new ArrayList<Task>();
+		listTodo = new ArrayList<Todo>();
+	}
+	
+	@Override
+	public void addTicket(String title, String description, String dueDate, TicketPriority priority, String sender,
+			String owner) {
+		Ticket ticket=new Ticket(title,description,dueDate,priority,sender,owner);
+		listAll.add(ticket);
+		listTickets.add(ticket);
+		System.out.println("New ticket was added.");
+		
+	}
+
+	@Override
+	public void addTodo(String title, String description, TodoState state) {
+		Todo todo=new Todo(title,description,state);
+		listAll.add(todo);
+		listTodo.add(todo);
+		System.out.println("New Todo was added.");
+	}
+
+	@Override
+	public void addTask(String title, String description, String dueDate, TaskPriority priority, String plannedTime,
+			String assignee) {
+		Task task=new Task(title,description,dueDate,priority,plannedTime,assignee);
+		listAll.add(task);
+		listTasks.add(task);
+		System.out.println("New task was added.");
+	}
+
+	@Override
+	public List<Item> listAll() {
+		return listAll;
+	}
+
+	@Override
+	public List<Ticket> listTickets() {
+		return listTickets;
+	}
+
+	@Override
+	public List<Todo> listTodos() {
+		return listTodo;
+	}
+
+	@Override
+	public List<Item> listTodos(TodoState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Task> listTasks() {
+		return listTasks;
+	}
+
+	@Override
+	public List<Item> searchByTitleOrDescription(String pattern) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void changeTodoState() {
+		// TODO Auto-generated method stub
+		
+	}
+    // TODO: implement required functionality
+}

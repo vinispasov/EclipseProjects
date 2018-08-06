@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="GSM"/>
+<fullyQualifiedTypeName name="Call"/>
+<fullyQualifiedTypeName name="Deposit.ShortDeposit"/>
+<fullyQualifiedTypeName name="Deposit"/>
+<fullyQualifiedTypeName name="MusicInstruments.MusicInstruments"/>
+<fullyQualifiedTypeName name="MusicInstruments.StringsInst.Viola"/>
+<fullyQualifiedTypeName name="MusicInstruments.StringsInst.Bass"/>
+<fullyQualifiedTypeName name="MusicInstruments.StringsInst"/>
+<fullyQualifiedTypeName name="MusicInstruments.StringsInst.Gadulka"/>
+<fullyQualifiedTypeName name="MusicInstruments.StringsInst.Harp"/>
+<fullyQualifiedTypeName name="MusicInstruments.StringsInst.Quitar"/>
+<fullyQualifiedTypeName name="MusicInstruments.PercussionInst"/>
+<fullyQualifiedTypeName name="MusicInstruments.WindInst"/>
+<fullyQualifiedTypeName name="MusicInstruments.KeyboardInst"/>
+<fullyQualifiedTypeName name="MusicInstruments.ElectronicInst"/>
+<fullyQualifiedTypeName name="Shop"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Vignette.CarVignette.dailyVignette"/>
+<fullyQualifiedTypeName name="Vignette.TruckVignette"/>
+<fullyQualifiedTypeName name="Vignette.BusVignette"/>
+<fullyQualifiedTypeName name="Vignette.CarVignette"/>
+<fullyQualifiedTypeName name="Vignette.Vignette"/>
+<fullyQualifiedTypeName name="Vignette.CarVignette.DailyVignette"/>
+<fullyQualifiedTypeName name="Agency.Agent"/>
+<fullyQualifiedTypeName name="Agency.Agency"/>
+<fullyQualifiedTypeName name="Agency.View"/>
+<fullyQualifiedTypeName name="Clients.Buyer"/>
+<fullyQualifiedTypeName name="Properties.Apartment"/>
+<fullyQualifiedTypeName name="Properties.Property"/>
+<fullyQualifiedTypeName name="Properties.Parcel"/>
+<fullyQualifiedTypeName name="Properties.House"/>
+<fullyQualifiedTypeName name="Clients.Seller"/>
+<fullyQualifiedTypeName name="Couriers.WholeSaleCourier"/>
+<fullyQualifiedTypeName name="Shops.CommercialSite"/>
+<fullyQualifiedTypeName name="Shops.MarketStall"/>
+<fullyQualifiedTypeName name="Traders.Peddler"/>
+<fullyQualifiedTypeName name="Traders.Trader"/>
+<fullyQualifiedTypeName name="Shops.StreetKiosk"/>
+<fullyQualifiedTypeName name="Shops.MallShop"/>
+<fullyQualifiedTypeName name="Couriers.Courier"/>
+<fullyQualifiedTypeName name="Traders.TradeChain"/>
+<fullyQualifiedTypeName name="Couriers.RetailCourier"/>
+<fullyQualifiedTypeName name="Traders.SoleTrader"/>
+</qualifiedTypeNameHistroy>

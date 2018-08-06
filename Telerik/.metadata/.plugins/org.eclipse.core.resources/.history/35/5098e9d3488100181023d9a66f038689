@@ -1,0 +1,20 @@
+package bank_product;
+
+import financial_unit.Bank;
+import tools.CreditNotApprovedException;
+import tools.Entity;
+import java.util.Scanner;
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		try {
+		Credit credit=new Credit("pesho",5000,"0040121212",Entity.CORPORATE,CreditTypeCorporate.BUSINESS,18,22000);
+	
+		}
+		catch(CreditNotApprovedException e) {
+			System.out.println("Credit not approved");
+		}
+	}
+	
+}

@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Task06 {
+	
+	public static void main(String[]args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number:");
+		int number=sc.nextInt();
+		int numStart=1;
+		int sum=0;
+		int result=Sum(numStart,number,sum);
+		System.out.println("The sum is: "+result);
+	}
+	
+	static int Sum(int numStart,int number,int sum) {
+		if (numStart==number) {
+			return number;
+		}
+		
+		numStart++;
+		return sum=Sum(sum+=numStart,number,sum);
+	}
+
+}

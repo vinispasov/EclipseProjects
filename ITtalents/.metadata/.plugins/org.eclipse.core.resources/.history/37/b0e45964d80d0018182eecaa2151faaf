@@ -1,0 +1,18 @@
+
+
+public class Bank {
+	private String name;
+	private String addres;
+	private Deposit deposit;
+	private Credit credit;
+	private double bankBalance;
+	
+	//methods
+	void giveCredit(double amount,int period) {
+		
+	}
+	
+	void calcImportDep() {
+		
+	}
+}

@@ -1,0 +1,13 @@
+package FinancialUnit;
+import BankProduct.Credit;
+import BankProduct.Deposit;
+import java.util.List;
+public class Client extends FinancialUnit {
+
+    private int monthlySalary;
+    private List<Credit>creditList;
+    private List<Deposit>depositList;
+
+
+
+}

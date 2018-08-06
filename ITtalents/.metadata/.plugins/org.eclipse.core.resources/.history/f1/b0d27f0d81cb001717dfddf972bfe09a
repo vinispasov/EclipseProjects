@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class task8 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	
+	
+	String nbr =sc.nextLine();    
+	int a=nbr.charAt(0)-'0';    
+	int b=nbr.charAt(1)-'0';    
+	int c=nbr.charAt(2)-'0';    
+  
+	
+		System.out.println(a);
+	System.out.println(b);
+	
+}
+}

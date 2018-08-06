@@ -1,0 +1,14 @@
+
+public class NotepadDemo {
+	public static void main(String[] args) {
+		SimpleNotepad s=new SimpleNotepad("Dnevnik",10);
+		
+		s.addTextToPage(1, "zdravei");
+		s.addTextToPage(2, "tumbalalaika3 nali taka");
+		//s.searchWord("nali");
+		s.viewAllPages();
+		s.addNewTextRemoveOldOne(1, "begai");
+		s.viewAllPages();
+	}
+
+}

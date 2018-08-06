@@ -1,0 +1,19 @@
+
+public class Demo {
+	public static void main(String[] args) {
+		SuperHero superman=new SuperHero("Superman",88,true,"Pesho","uchi v akademiya",true);
+		
+		SuperVilliain dark=new SuperVilliain("Darkseid",100,true,"Gosho","izkliuchiha go ot uchilishte",false);
+		
+		superman.addSuperPower(Powers.MAGIC);
+		superman.addSuperPower(Powers.STRONG);
+		dark.addSuperPower(Powers.TECH);
+		dark.addSuperPower(Powers.INVISIBLE);
+		dark.destroy(superman);
+		superman.saveWorld(dark);
+		Person pesho=new Person("Pesho",110,true);
+		System.out.println(superman.getClass().getName());
+		
+	}
+
+}

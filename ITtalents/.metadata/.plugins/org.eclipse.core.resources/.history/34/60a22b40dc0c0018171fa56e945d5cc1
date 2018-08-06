@@ -1,0 +1,28 @@
+package MusicInstruments;
+
+public class ElectronicInst extends MusicInstruments {
+	
+	
+	  //constructor
+			public ElectronicInst(){
+				this.setType("Electronic Instrument");
+			}
+	
+	public class Synthesizer extends ElectronicInst{
+		//constructor
+		   public Synthesizer() {
+			   this.setName("Synthesizer");
+			   this.setPrice(300);
+		   }
+		
+	}
+    public class BassQuitar extends ElectronicInst{
+    	
+		
+	}
+    public class ElViolin extends ElectronicInst{
+	
+    }
+    
+
+}

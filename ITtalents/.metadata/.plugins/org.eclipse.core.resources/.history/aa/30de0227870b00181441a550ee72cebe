@@ -1,0 +1,6 @@
+
+public class Deposit extends BankProducts {
+	private int depositMnthSum;
+	
+
+}

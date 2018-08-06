@@ -1,0 +1,41 @@
+
+public class Demo {
+	public static void main(String[] args) {
+		Person[]hora=new Person[10];
+		
+		Person p1=new Person("Pesho",20,true);
+		Person p2=new Person("Iva",21,false);
+		
+		Student s1=new Student("Ivan",19,true,4.50);
+		Student s2=new Student("Ivanka",21,false,5.30);
+		
+		Employee e1=new Employee("Gosho",27,true,52.5);
+		Employee e2=new Employee("Goska",17,false,40);
+		
+		hora[0]=p1;
+		hora[1]=p2;
+		hora[2]=s1;
+		hora[3]=s2;
+		hora[4]=e1;
+		hora[5]=e2;
+		
+		
+	    e1.calculateOverTime(2);//Gosho overtime
+	    
+		for (int i = 0; i < hora.length; i++) {
+			if (hora[i]==null) {
+				continue;
+			}
+			hora[i].showPersonInfo();
+			System.out.println();
+		}
+		
+		for (int i = 0; i < hora.length; i++) {
+			if (hora[i]==null) {
+				continue;
+			}
+			hora[i].getClass();
+		}
+	}
+
+}

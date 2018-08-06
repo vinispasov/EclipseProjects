@@ -1,0 +1,101 @@
+package bank_product;
+import java.util.Scanner;
+
+import tools.Entity;
+
+public abstract class BankProduct {
+
+	
+	private static final int ID_NUMBERS = 10;
+	private static final int BULSTAT_NUMBER_NINE =9;
+	private static final int BULSTAT_NUMBER_THIRTEEN =13;
+	private int rate;
+	private int periodOfProductMonthly;
+	private double accountBalance;
+	private int tax;
+	private String idOrBulstat;
+	
+	//constructors
+	public BankProduct() {
+		this.rate =0;
+		this.periodOfProductMonthly =0;
+		this.accountBalance = 0;
+		this.setTax(0);
+		this.setIdOrBulstat("");
+	}
+
+	//getters and setters
+	public int getAnnualInterestRate() {
+		return rate;
+	}
+
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+
+	public int getPeriodOfProductMonthly() {
+		return periodOfProductMonthly;
+	}
+
+	public void setPeriodOfProductMonthly(int period,int minPeriod,int maxPeriod){
+		if (period<minPeriod||period>maxPeriod) {
+			Scanner sc=new Scanner(System.in);
+			while(true) {
+				System.out.println("The period should be between "+minPeriod+" and "+maxPeriod+" including.Please try again here: ");
+				period=sc.nextInt();
+				if (period>=minPeriod&&period<=maxPeriod) {
+					System.out.println("Correct period.");
+					break;
+				}
+			}
+		}
+		this.periodOfProductMonthly=period;
+	}
+	
+
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public String getIdOrBulstat() {
+		return idOrBulstat;
+	}
+
+	public void setIdOrBulstat(String idOrBulstat) {
+		
+		if(idOrBulstat.length()==ID_NUMBERS
+				||idOrBulstat.length()==BULSTAT_NUMBER_NINE
+				||idOrBulstat.length()==BULSTAT_NUMBER_THIRTEEN) {
+			this.idOrBulstat=idOrBulstat;
+		}
+		else {
+			Scanner sc=new Scanner(System.in);
+			while(true) {
+				System.out.println("Personal Id should be 10 digits.Bulstat should be 9 or 13 digits.Try again here: ");
+				idOrBulstat=sc.nextLine();
+				if (idOrBulstat.length()==ID_NUMBERS
+						||idOrBulstat.length()==BULSTAT_NUMBER_NINE
+						||idOrBulstat.length()==BULSTAT_NUMBER_THIRTEEN) {
+					System.out.println("Correct input!");
+					this.idOrBulstat=idOrBulstat;
+					break;
+				}
+			}
+		}
+	}
+
+	public int getTax() {
+		return tax;
+	}
+ 
+	public void setTax(int tax) {
+		this.tax = tax;
+	}
+	
+
+	
+}

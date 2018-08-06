@@ -1,0 +1,27 @@
+package RecursionTasks;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Numerology {
+	public static void main(String[] args)  {
+		Scanner sc=new Scanner(System.in);
+
+
+		String in=sc.nextLine();
+		
+		ArrayList<Integer>list=new ArrayList<>();
+		
+		for (int i = 0; i < list.size(); i++) {
+			int num=in.charAt(i)-'0';
+			System.out.println(num);
+			list.add(num);
+			
+		}
+	
+	
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+	}
+	
+
+}

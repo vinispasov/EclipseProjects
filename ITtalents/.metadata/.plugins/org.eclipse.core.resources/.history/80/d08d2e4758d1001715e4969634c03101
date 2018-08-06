@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class task21 {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+	
+	System.out.println("Enter number:");
+	   int a=sc.nextInt();
+	   while(!(a>=1&&a<=51)) {
+			System.out.println("Invalid number, try again:");
+			   a=sc.nextInt();
+		   }
+	      
+	   System.out.println(1);
+	   int spatiya=1;
+	   int karo=2;
+	   int kupa=3;
+	   for (int i =1; i <=13; i++) {
+		   switch (i) {
+		case 1:System.out.println(2);
+			
+			break;
+
+		default:
+			break;
+		}
+		for (int j =1; j <=4; j++) {
+		
+			if (j==1) {
+				System.out.println("spatiya");
+			}
+			else if(j==2) {
+				System.out.println("karo");
+			}
+			else if (j==3) {
+				System.out.println("kupa");
+			}
+			else if (j==4) {
+				System.out.println("pika");
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			if (i%4==0) {
+				System.out.println("Pika");
+			}
+			
+			
+			
+		}
+	}
+	   
+	   
+	   
+}
+}

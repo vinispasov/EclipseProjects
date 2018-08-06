@@ -1,0 +1,11 @@
+import java.util.Scanner;
+public class TheGreedyDwarf {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String inputSize=sc.nextLine();
+		int n=inputSize.charAt(0);
+		int m=inputSize.charAt(2);
+		System.out.println(n+" "+m);
+	}
+
+}

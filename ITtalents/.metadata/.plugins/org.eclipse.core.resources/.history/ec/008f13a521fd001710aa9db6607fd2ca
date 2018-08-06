@@ -1,0 +1,20 @@
+
+public class Demo {
+	public static void main(String[] args) {
+		Carshop mbShop=new Carshop(5);
+		Car car1=new Car("slk",2014,78000);
+		Car car2=new Car("clk",1999,5500);
+		Car car3=new Car("S-klasse",2017,150000);
+		Car car4=new Car("C-klasse",2016,85000);
+		Car car5=new Car("E-klasse",2010,45000);
+		mbShop.addCar(car1);
+		mbShop.addCar(car2);
+		mbShop.addCar(car3);
+		mbShop.addCar(car4);
+		mbShop.addCar(car5);
+		
+		
+		
+	}
+
+}

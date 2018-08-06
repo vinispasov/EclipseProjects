@@ -1,0 +1,9 @@
+
+public class NotepadDemo {
+	public static void main(String[] args) {
+		ElectronicSecuredNotepad myNotepad=new ElectronicSecuredNotepad("Notepad",5,"parola");
+		myNotepad.isStarted();
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class NotepadDemo {
+	public static void main(String[] args) {
+		Page page=new Page();
+		page.addText("fafsagagafafafa");
+		page.pageView();
+		
+	}
+
+}

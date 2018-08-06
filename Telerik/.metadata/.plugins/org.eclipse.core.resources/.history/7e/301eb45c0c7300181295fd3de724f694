@@ -1,0 +1,75 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Solve {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String exp=sc.nextLine();
+		
+	
+		int counter=0;
+		ArrayList<Character>characters=new ArrayList<>();
+		ArrayList<Integer>digits=new ArrayList<>();
+		StringBuilder sb=new StringBuilder();
+		for (int i = 0; i < exp.length(); i++) {
+			if (exp.charAt(i)!='+'
+					&&exp.charAt(i)!='-'
+					&&exp.charAt(i)!='*'
+					&&exp.charAt(i)!='('
+					&&exp.charAt(i)!=')') {
+			
+				
+				if (counter>=0) {
+					sb.append(exp.charAt(i));
+					counter++;
+				}
+			}
+			else {
+				counter=0;
+				if (sb.length()>0) {
+					digits.add(Integer.parseInt(sb.toString()));
+					sb.delete(0, sb.length());
+				}
+				
+				if (exp.charAt(i)!='('&&exp.charAt(i)!=')') {
+					characters.add(exp.charAt(i));
+				}
+				
+			}
+		}
+		counter=0;
+		int counter1=0;
+		int sum=0;
+		int digit=0;
+		int nextDigit=0;
+		for (int i = digits.size()-counter; i >0; i--) {
+			
+				digit=digits.get(i);
+				
+			
+			for (int j =characters.size()-counter1; j > 0; j--) {
+				char ch=characters.get(j);
+				if (ch=='+') {
+					sum+=digit;
+					break;
+				}
+				else if (ch=='*') {
+					if (sum==0) {
+						sum+=digit;
+						continue;
+					}
+					sum*=digit;
+					break;
+				}
+                else if (ch=='-') {
+					sum-=digit;
+					break;
+				}
+				
+				
+			}
+			counter++;
+		}
+		System.out.println(sum);
+	}
+
+}

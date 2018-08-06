@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Task07 {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+	     
+		int[][]arr=new int[6][6];
+		
+	    
+		int[]arrSumRows=new int[6];
+		int sumRows=0;
+		int sumOfAll=0;
+		
+
+		for (int i = 0; i <6; i++) {
+			for (int j = 0; j <6; j++) {
+			System.out.println("Enter number:");
+			arr[i][j]=sc.nextInt();
+			}
+	    }
+		
+		for (int rows = 0; rows < arr.length; rows++) {
+			sumOfAll=sumRows;
+			sumRows=0;
+			for (int cols = 0; cols < arr.length; cols++) {
+				if ((rows+cols)%2==0) {
+					sumRows+=arr[rows][cols];
+					arrSumRows[rows]=sumRows;
+					System.out.print(arr[rows][cols]+",");
+				}
+			}
+			System.out.print(" The sum for the element is: "+arrSumRows[rows]);
+		    System.out.println();
+			System.out.println("The sum of the element is: "+sumOfAll);
+		}
+		
+		
+		
+	}
+
+}

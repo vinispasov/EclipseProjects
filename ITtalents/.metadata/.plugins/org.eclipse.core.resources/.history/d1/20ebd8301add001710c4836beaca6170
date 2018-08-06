@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Task08 {
+	
+	public static void main(String[]args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter string:");
+		String words=sc.nextLine();
+	    boolean palindrom=true;
+		char symbol=words.charAt(0);
+	    
+		for(int i=0;i<words.length()/2;i++) {
+			symbol=words.charAt(i);
+			for (int j =words.length()-1; j >words.length()/2; j--) {
+				symbol=words.charAt(j);
+				System.out.println(i+" "+j);
+				if (j!=i) {
+					palindrom=false;
+				}
+			}
+		}
+		if (palindrom) {
+			System.out.println("Palindrom");
+		}
+		else {
+			System.out.println("ne e palindrom");
+		}
+	}
+
+}

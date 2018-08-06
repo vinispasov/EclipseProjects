@@ -1,0 +1,6 @@
+import MusicInstruments;
+
+public class StringsInst extends MusicInstruments{
+	
+
+}

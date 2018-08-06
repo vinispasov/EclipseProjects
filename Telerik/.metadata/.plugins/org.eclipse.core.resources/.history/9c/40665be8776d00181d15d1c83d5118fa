@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class SendMeTheCode {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int in=sc.nextInt();
+		int a=((in/10)/10)%10;
+		int b=in/10%10;
+		int c=in%10;
+		int result=0;
+		StringBuilder sb=new StringBuilder();
+		
+			
+				result+=Math.pow(3, 2)*a;
+			
+				result+=Math.pow(b, 2)*2;
+				
+				result+=c*Math.pow(1, 2);
+			int lastDigit=result%10;
+			if (result%10==0) {
+				System.out.println(result);
+				System.out.println("Big Vik wins again!");
+			}
+			else {
+		int s=result%26;
+		for (int i = 0; i <lastDigit; i++) {
+			       s++;
+			if (s>=27) {
+				int diff=s-26;
+				s=diff;
+			}
+			char ch=(char) (s+64);
+			sb.append(ch);
+		}
+		
+		System.out.println(result);
+		System.out.println(sb);
+	}
+	}
+}

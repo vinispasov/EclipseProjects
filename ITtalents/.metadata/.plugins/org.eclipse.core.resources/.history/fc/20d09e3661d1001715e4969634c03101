@@ -1,0 +1,19 @@
+
+public class task23 {
+public static void main(String[] args) {
+	int result=0;
+	int num=1;
+	int counter=1;
+	while (counter!=10) {
+		result=num*counter;
+		System.out.println(result);
+		if (counter==9) {
+			num++;
+			counter=1;
+		}
+		if (num==9) {
+			break;
+		}
+	}
+}
+}

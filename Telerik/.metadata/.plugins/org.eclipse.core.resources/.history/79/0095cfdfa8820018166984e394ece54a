@@ -1,0 +1,84 @@
+package financial_unit;
+import java.util.Scanner;
+import tools.OutOfCurrencyException;
+
+public abstract class FinancialUnit {
+
+	//fields
+    private static final int MIN_SIZE_OF_NAME = 2;
+    private static final int MIN_SIZE_OF_ADDRESS = 5;
+    private static final int MAX_SIZE_OF_NAME = 40;
+    private static final int MAX_SIZE_OF_ADDRESS = 70;
+	private String name;
+    private String address;
+	private int availableCurrency;
+
+
+
+    
+
+	
+ //constructor
+	public FinancialUnit(String name, String address, int availableCurrency) {
+		setName(name);
+	    setAddress(address);
+		setAvailableCurrency(availableCurrency);
+	}
+
+	//getters and setters
+    public String getName() {
+        return name;
+    }
+    
+    public static int getMinSizeOfName() {
+		return MIN_SIZE_OF_NAME;
+	}
+
+
+    // Name must be of only alphabet characters, start with a capital letter and be no longer than 40 symbols.
+    public abstract void setName(String name) ;
+    
+    void setCorrectName(String name) {
+    	this.name=name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    // Address must be of only alphanumeric characters and be no longer than 50 symbols.
+    public void setAddress(String address) {
+    	  
+		   Scanner sc=new Scanner(System.in);
+		   
+			    if (address.isEmpty()||address==null||address.length()<MIN_SIZE_OF_ADDRESS
+			    		||address.length()>MAX_SIZE_OF_ADDRESS) {
+			    	System.out.println("Invalid address entered.Try again:");
+			    	address=sc.nextLine();
+				}
+			
+			sc.close();
+			setAddress(address);
+   		this.address = address;
+    }
+
+    public int getAvailableCurrency() {
+        return availableCurrency;
+
+    }
+
+    // Available currency must be of only numeric characters.
+    public abstract void setAvailableCurrency(int availableCurrency);
+
+    void setCorrectAvailableCurrency(int availableCurrency) {
+        this.availableCurrency = availableCurrency;
+    }
+
+	public static int getMaxSizeOfName() {
+		return MAX_SIZE_OF_NAME;
+	}
+
+
+
+
+}

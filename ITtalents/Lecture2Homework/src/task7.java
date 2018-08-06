@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class task7 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter hours:");
+	int hour=sc.nextInt();
+	System.out.println("Enter money:");
+	float money=sc.nextFloat();
+	System.out.println("Enter Are you sick:");
+	boolean AmIsick=sc.nextBoolean();
+	if (AmIsick) {
+		System.out.println("I am sick.I will stay home.");
+		 if(money>0) {
+			    System.out.println("I will buy medicine.");
+				}
+				
+				
+				else if (money<=0) {
+					System.out.println("I will stay home and drink some tea.");
+				}
+	}
+   
+	if(AmIsick==false) {
+		System.out.println("I am fine.I wil go to cinema with friends!");
+		 if (money<=10) {
+				System.out.println("I will go to cafe.");
+	}
+	
+		
+	}
+}
+}
+

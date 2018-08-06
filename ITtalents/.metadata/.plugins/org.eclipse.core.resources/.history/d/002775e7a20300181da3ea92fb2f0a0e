@@ -1,0 +1,96 @@
+
+public class Employee {
+	private String name;
+	private Task currentTask;
+	private static final int MAX_HOURS=8;
+	private int hoursLeft=MAX_HOURS;
+	private int days=1;
+	static AllWork allWork;
+    
+	//constructor
+	Employee(String name){
+		setName(name);
+	}
+	
+	//setters
+	
+	public void setName(String name) {
+		if (name!=" ") {
+			this.name=name;
+		}
+		else {
+			System.out.println("The name is incorrect!");
+		}
+	}
+	public void setCurrentTask(Task currentTask) {
+	     this.currentTask=currentTask;
+	}
+	public void setHoursLeft(int hoursLeft) {
+		if (hoursLeft>=0) {
+			this.hoursLeft=hoursLeft;
+		}
+		else {
+			System.out.println("Incorrect number for hours left!");
+		}	
+	}
+	
+	//getters
+	
+	public String getName() {
+		return this.name;
+	}
+	public Task getCurrentTask() {
+		return this.currentTask;
+	}
+	public int getHoursLeft() {
+		return this.hoursLeft;
+	}
+	
+	//methods
+	
+	void work(AllWork allWork) {
+		int workingHours=allWork.getCurrentTask().getWorkingHours();
+			while(this.hoursLeft>0) {
+				workingHours=allWork.getCurrentTask().getWorkingHours();
+			if (workingHours>this.hoursLeft) {
+				allWork.getCurrentTask().setWorkingHours(workingHours-this.hoursLeft);
+				this.hoursLeft=0;
+				System.out.println("End of shift!"+this.getName()+" was working on "
+				+allWork.getCurrentTask().getName()+", hours left to finish the task: "+allWork.getCurrentTask().getWorkingHours());
+			}
+			else if (this.hoursLeft>workingHours) {
+				System.out.println(this.getName()+" getting next task -"
+				+allWork.getCurrentTask().getName()+" for "+allWork.getCurrentTask().getWorkingHours()+" hours.");
+				this.hoursLeft-=workingHours;
+				allWork.getCurrentTask().setWorkingHours(0);
+				if (allWork.freePlacesForTasks==0) {
+					System.out.println("No more new tasks.");
+					break;
+				}
+			    allWork.getNextTask();
+			}
+			else {
+				allWork.getCurrentTask().setWorkingHours(0);
+				this.hoursLeft=0;
+				System.out.println(this.getName()+" finish for today!He done all day "+allWork.getCurrentTask().getName());
+				allWork.getNextTask();
+			}
+			}
+	}
+	
+	public void showReport() {
+		System.out.println();
+		System.out.println("Name of employee: "+getName());
+		System.out.println("Current task name: "+ this.currentTask.getName());
+		System.out.println("Hours left to work: "+getHoursLeft());
+		System.out.println("Hours left for the task: "+this.currentTask.getWorkingHours());
+	}
+	
+	void startWorkingDay() {
+		this.hoursLeft=MAX_HOURS;
+		System.out.println("It's a day "+this.days++);
+	}
+	
+
+	
+}

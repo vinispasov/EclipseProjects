@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Task03 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String word=sc.next();
+		int index=0;
+		for(int i=0;i<word.length();i++) {
+			char coma=word.charAt(i);
+			if (coma==',') {
+				index=i;
+			}
+		}
+	 String secondWord=word.substring(index);
+		
+		System.out.println(secondWord);
+	}
+
+}

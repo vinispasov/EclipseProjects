@@ -1,0 +1,37 @@
+package MusicInstruments;
+
+public class ElectronicInst extends MusicInstruments {
+	
+	
+	  //constructor
+			public ElectronicInst(){
+				this.setType("Electronic Instrument");
+			}
+	
+	public class Synthesizer extends ElectronicInst{
+		//constructor
+		   public Synthesizer() {
+			   this.setName("Synthesizer");
+			   this.setPrice(349.50);
+		   }
+		
+	}
+    public class BassQuitar extends ElectronicInst{
+    	//constructor
+		   public BassQuitar() {
+			   this.setName("BassQuitar");
+			   this.setPrice(279.99);
+		   }
+		
+	}
+    public class ElViolin extends ElectronicInst{
+    	//constructor
+		   public ElViolin() {
+			   this.setName("ElViolin");
+			   this.setPrice(259.99);
+		   }
+	
+    }
+    
+
+}

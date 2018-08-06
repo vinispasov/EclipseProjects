@@ -1,0 +1,24 @@
+package bank_product;
+import java.util.Scanner;
+
+enum CreditType{
+	CUSTOM,RESIDENTIAL,STUDENT,FAST;
+}
+public class Credit extends BankProduct{
+	
+    private double monthlyFee;
+	
+    //constructor
+	public Credit(CreditType creditType,int periodOfProductMonthly,int amount,int salary) {
+	
+		
+	}
+	
+	//getters and setters
+	public double getMonthlyFee() {
+		return monthlyFee;
+	}
+
+	
+
+}

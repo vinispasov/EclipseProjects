@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class CorrectBrackets {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int n=sc.nextInt();
+		String expression="";
+		
+		System.out.println(combinationOfBrackets(expression,n));
+	}
+	
+	static String combinationOfBrackets(String expression,int n) {
+		
+		if (expression.length()==n) {
+			return expression;
+		}
+	
+		combinationOfBrackets(expression=expression+"()",n);
+		return combinationOfBrackets(expression="("+expression+")",n);
+		
+		
+	
+			
+		
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class task10 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter size:");
+	int size=sc.nextInt();
+	int times=size/5;
+	
+	int a=16%5;
+		
+	
+	System.out.println(a);
+}
+}

@@ -1,0 +1,76 @@
+package models;
+
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import models.base.Item;
+
+public class Task extends Item{
+	
+	//fields
+	private Date dueDate;
+	private TicketPriority priority;
+	private double plannedTime;
+	private String assignee;
+	
+	//constructor
+	public Task(String title, String description, Date dueDate, TicketPriority priority, double plannedTime,
+			String assignee) {
+		super(title, description);
+		this.dueDate = dueDate;
+		this.priority = priority;
+		setPlannedTime(plannedTime);
+		setAssignee(assignee);
+	}
+	
+	
+	//getters and setters
+	
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(Date dueDate) {
+		Date date=new Date();
+		date.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+		this.dueDate = dueDate;
+	}
+
+	public TicketPriority getPriority() {
+		return priority;
+	}
+
+	public void setPriority(TicketPriority priority) {
+		this.priority = priority;
+	}
+
+	public double getPlannedTime() {
+		return plannedTime;
+	}
+
+	public void setPlannedTime(double plannedTime) {
+		if (plannedTime<=0) {
+			System.out.println("Incorect planned time.Try again.");
+		}
+		else {
+		this.plannedTime = plannedTime;
+		}
+	}
+
+	public String getAssignee() {
+		return assignee;
+	}
+
+	public void setAssignee(String assignee) {
+		if (assignee==null||assignee.isEmpty()) {
+			System.out.println("Incorect input.Try again.");
+		}else {
+			this.assignee = assignee;
+		}
+	}
+	
+	
+	
+	
+
+}

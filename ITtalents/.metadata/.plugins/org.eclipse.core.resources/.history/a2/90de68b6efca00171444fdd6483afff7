@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class task8 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	
+	
+	
+		char d=sc.nextLine().charAt(3);
+		char c=sc.nextLine().charAt(2);
+		char b=sc.nextLine().charAt(1);
+		char a=sc.nextLine().charAt(0);
+		System.out.println(d);
+		
+		
+		
+	
+}
+}

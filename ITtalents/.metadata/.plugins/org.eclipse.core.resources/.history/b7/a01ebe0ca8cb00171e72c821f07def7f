@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class task10 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter size:");
+	int size=sc.nextInt();
+	int treeL=0;
+	int twoL=0;
+	for (int i = 1; i <=size; i++) {
+		if (i%2==0) {
+			treeL++; 
+		}
+		else {
+			twoL++;
+		}
+	}
+	System.out.println(treeL);
+	System.out.println(twoL);
+}
+}

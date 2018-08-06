@@ -1,0 +1,10 @@
+package superheroesUniverse;
+
+public class Snippet {
+	@Override
+		public void addSuperPower(Powers power) {
+			this.getListOfPowers().add(power);
+			System.out.println("Added power to the superhero "+this.getName());
+		}
+}
+

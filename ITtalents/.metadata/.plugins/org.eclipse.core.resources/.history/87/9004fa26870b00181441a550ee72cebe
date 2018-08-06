@@ -1,0 +1,8 @@
+
+public abstract class BankProducts {
+	private String name;
+	private int yearInterestPercent;
+	private int period;
+	private int balance;
+
+}

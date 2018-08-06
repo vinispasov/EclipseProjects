@@ -1,0 +1,17 @@
+package Clients;
+import Agency.View;
+import java.util.ArrayList;
+public class Buyer extends Client{
+	
+	private int budget;
+	private ArrayList<View>views;
+	
+	//constructor
+	public Buyer(String name, String phone, int budget) {
+		super(name, phone);
+		this.budget=budget;
+		this.views=new ArrayList<View>();
+	}
+	
+
+}

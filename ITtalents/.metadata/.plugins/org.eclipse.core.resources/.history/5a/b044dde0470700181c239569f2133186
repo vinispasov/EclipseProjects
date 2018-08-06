@@ -1,0 +1,16 @@
+
+public interface INotepad {
+	
+	//methods
+	void addTextToPage(String text,int page);
+	void addNewTextRemoveOldOne(String text,Page page);
+	void removeText(Page page);
+	void viewAllPages();
+	void searchWord(String word);
+	void printAllPagesWithDigits();
+	
+		
+	
+		
+
+}

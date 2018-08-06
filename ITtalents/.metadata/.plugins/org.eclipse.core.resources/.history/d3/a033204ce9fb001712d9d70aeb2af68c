@@ -1,0 +1,37 @@
+
+public class College {
+	public static void main(String[] args) {
+		Student pesho=new Student("Pesho","BussinesAdministration", 29);
+		Student sisi=new Student("Sisi","Music and arts",21);
+		Student gosho=new Student();
+		pesho.grade=5.50;
+		
+		System.out.println(pesho.receiveScholarship(3, 50));
+		sisi.upYear();
+		
+		StudentGroup sg1=new StudentGroup("BussinesAdministration");
+		StudentGroup sg2=new StudentGroup("Music and arts");
+		
+		for (int i = 0; i < sg1.students.length; i++) {
+			if (i==1) {
+		    sg1.addStudent(pesho);
+			}
+			else {
+		    sg1.addStudent(new Student("Number "+i,"BussinesAdministration",i+19));
+			}
+		}
+		
+		for (int i = 0; i < sg2.students.length; i++) {
+			if (i==1) {
+				sg2.addStudent(sisi);
+			}
+			else {
+		   sg2.addStudent(new Student("Number "+i,"Music and arts",i+19));
+			}
+		}
+		
+		System.out.println(sg1.theBestStudent());
+		
+	}
+
+}

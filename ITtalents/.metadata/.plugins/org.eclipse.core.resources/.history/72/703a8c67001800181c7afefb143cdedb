@@ -1,0 +1,13 @@
+package Properties;
+
+import Agency.Agent;
+
+public abstract class Property {
+	
+	private String description;
+	private String addres;
+	private int price;
+	private double area;
+	private Agent agent;
+
+}

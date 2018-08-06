@@ -1,0 +1,21 @@
+
+public class NotepadDemo {
+	public static void main(String[] args) {
+		ElectronicSecuredNotepad s=new ElectronicSecuredNotepad("Notepad",10,"parola");
+		
+		s.start();
+		s.addTextToPage(1, "Hello there!");
+		
+		s.addTextToPage(2,"How are you?");
+		s.addTextToPage(3,"I am fine.");
+		s.viewAllPages();
+		s.addNewTextRemoveOldOne(1,"Hey my friend.");
+		s.removeText(3);
+		s.viewAllPages();
+		s.addTextToPage(7, "I am 21 years old");
+		s.searchWord("Hey");
+		s.printAllPagesWithDigits();
+		s.stop();
+	}
+
+}

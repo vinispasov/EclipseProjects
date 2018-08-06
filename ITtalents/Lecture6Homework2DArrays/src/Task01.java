@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Task01 {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int[][]arr=new int[6][5];
+		int max=Integer.MIN_VALUE;
+		int min=Integer.MAX_VALUE;
+		
+		for (int i = 0; i <6; i++) {
+			for (int j = 0; j < 5; j++) {
+			System.out.println("Enter number:");
+			arr[i][j]=sc.nextInt();
+			}
+		}
+        for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr.length-1; j++) {
+				if (max<arr[i][j]) {
+					max=arr[i][j];
+				}
+				else if (min>arr[i][j]) {
+					min=arr[i][j];
+				}
+			}
+		}
+        System.out.println("The smallest number is: "+min+';');
+        System.out.println("The biggest number is : "+max);
+	}
+
+}

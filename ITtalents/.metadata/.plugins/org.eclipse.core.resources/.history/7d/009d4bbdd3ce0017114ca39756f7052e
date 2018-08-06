@@ -1,0 +1,21 @@
+
+public class task12 {
+	
+
+	public static void main(String[] args) {
+		
+		
+		
+		String number ="100"; 
+		int num=Integer.parseInt(number);;
+		int a=number.charAt(0)-'0';   
+		int b=number.charAt(1)-'0';    
+		int c=number.charAt(2)-'0';
+		a++;
+		System.out.println(a+""+b+""+c);
+		
+		
+	}
+	}
+
+

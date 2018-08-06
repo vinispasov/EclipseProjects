@@ -1,0 +1,23 @@
+
+public class MaximumProductSubarray {
+
+	public static void main(String[] args) {
+		int[]arr= {2,3,-2,4};
+		int product;
+		int maxProduct=Integer.MIN_VALUE;
+		int a=0;
+		int b=1;
+		for (int i = a; i < arr.length; i++) {
+			for (int j = b; j < arr.length; j++) {
+			
+			   product=arr[i]*arr[j];
+			   if (product>maxProduct) {
+				maxProduct=product;
+			   }
+			   break;
+			}
+			b++;
+		}
+		System.out.println(maxProduct);
+	}
+}

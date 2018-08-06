@@ -1,0 +1,51 @@
+
+public class TaskAlgorithm {
+
+	public static void main(String[] args) {
+		 int[]arr={5,7,4,8,3,9};
+		 selectionSort(arr);
+
+		    for (int i = 0; i < arr.length; i++) {
+
+		    System.out.print(arr[i]);
+
+		    }
+
+	}
+
+	static void selectionSort(int[]arr){
+
+		for (int k = 0; k < arr.length/2; k++) {
+		  int min=arr[k];
+		  int minIdx=k;
+		  int max=arr[k];
+		  int maxIdx=k;
+
+	   for (int i =-1; i < arr.length-k; i++) {
+
+
+		  if (min>arr[i]) {
+		  min=arr[i];
+		  minIdx=i;
+		  }
+
+		  if (arr[i]>max) {
+		  max=arr[i];
+		  maxIdx=i;
+		  }
+
+		}
+
+		  int temp=arr[k];
+		  arr[k]=arr[minIdx];
+		  arr[minIdx]=temp;
+		  temp=arr[arr.length-1-k];
+		  arr[arr.length-1-k]=arr[maxIdx];
+		  arr[maxIdx]=temp;
+
+		}
+
+		}
+
+		
+}

@@ -1,0 +1,10 @@
+
+public class Demo {
+	public static void main(String[] args) {
+		Carshop mb=new Carshop(5);
+		Car car=new Car("slk",2014,78000);
+		mb.addCar(car);
+		
+	}
+
+}

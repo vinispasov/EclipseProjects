@@ -1,0 +1,20 @@
+package RecursionTasks;
+import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class Numerology {
+	public static void main(String[] args)  {
+		Scanner sc=new Scanner(System.in);
+
+
+		long input=sc.nextLong();
+		 
+		 
+		  System.out.println(input);
+		  
+		  
+	}
+	
+
+}

@@ -1,0 +1,7 @@
+package Properties;
+
+import java.lang.Object.Property;
+
+public class Parcel extends Property {
+
+}
